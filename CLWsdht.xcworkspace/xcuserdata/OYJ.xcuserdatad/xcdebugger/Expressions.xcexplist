@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__43-[LoginViewController getUserInfoToNetwork]_block_invoke_2:LoginViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BuyNowController buyNowToNetwork]:BuyNowController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__58-[ProductInfoViewController getGoodsDetailInfoFromNetwork]_block_invoke_2:ProductInfoViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "goodInfoReturn">
+            </PersistentString>
+            <PersistentString
+               value = "self.goodInfoReturn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ProductInfoViewController addCartAction:]:ProductInfoViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PayController selectButtonAction:]:PayController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.AlipaySelected">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__37-[ShopVC getSevenCategoryFromNetwork]_block_invoke_2:ShopVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.CategoryNameArray">
+            </PersistentString>
+            <PersistentString
+               value = "self.CategoryIdArray">
+            </PersistentString>
+            <PersistentString
+               value = "CategoryModal">
+            </PersistentString>
+            <PersistentString
+               value = "self.CategoryImgUrlArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TheOrderViewController tableView:cellForRowAtIndexPath:]:TheOrderViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PayController getAlipayOrderInfoFromNetWork]:PayController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "paramDict">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ProductInfoViewController buyNowAction:]:ProductInfoViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TheOrderViewController GetOrderListByNetwork]:TheOrderViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "paramDict">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[BuyNowController updateUI]:BuyNowController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__45-[ProductInfoViewController addCartToNetwork]_block_invoke_2:ProductInfoViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "storeInfoReturn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ProductInfoViewController addCartToNetwork]:ProductInfoViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cartJson">
+            </PersistentString>
+            <PersistentString
+               value = "self.goodInfoReturn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PayController getSubString:]:PayController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
