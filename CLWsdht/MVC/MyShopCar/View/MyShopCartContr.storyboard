@@ -133,26 +133,6 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDD-Cs-lJW">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="支付宝"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="115" y="11" width="45" height="30"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="zhifubaoAction:" destination="rqF-8a-Kdo" eventType="touchUpInside" id="MvL-8c-Jje"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdG-7i-Xdd">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="微信"/>
-                                        <variation key="widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="74" y="12" width="30" height="30"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="weixinAction:" destination="rqF-8a-Kdo" eventType="touchUpInside" id="dc9-pH-eib"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5zn-r4-adY" firstAttribute="leading" secondItem="MLz-wb-cNe" secondAttribute="trailing" constant="5" id="3QC-Wt-q3A"/>
@@ -175,8 +155,6 @@
                                         <exclude reference="D18-Jn-mnL"/>
                                         <exclude reference="GlM-Y8-LVC"/>
                                         <exclude reference="F5a-aI-PP3"/>
-                                        <exclude reference="zDD-Cs-lJW"/>
-                                        <exclude reference="HdG-7i-Xdd"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="EaF-HB-inV"/>
@@ -200,8 +178,6 @@
                                         <include reference="D18-Jn-mnL"/>
                                         <include reference="GlM-Y8-LVC"/>
                                         <include reference="F5a-aI-PP3"/>
-                                        <include reference="zDD-Cs-lJW"/>
-                                        <include reference="HdG-7i-Xdd"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="EaF-HB-inV"/>
