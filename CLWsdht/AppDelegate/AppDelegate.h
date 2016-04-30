@@ -17,6 +17,10 @@
 
 #import "AFNetworking.h"//网络请求三方
 
+static NSString *appKey = @"c8eb53c6c1dcb1921f660358";//推送
+static NSString *channel = @"Publish channel";
+static BOOL isProduction = FALSE;
+
 @class UserInfo;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

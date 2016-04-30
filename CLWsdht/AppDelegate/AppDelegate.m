@@ -18,6 +18,8 @@
 #import <ShareSDK/ShareSDK.h>
 #import "MacroNotification.h"
 #import "UIViewController+WeChatAndAliPayMethod.h"
+#import "GrabSingleViewController.h"
+#import "JPUSHService.h"
 
 @interface AppDelegate ()<
 CLLocationManagerDelegate,WXApiDelegate
@@ -30,6 +32,9 @@ CLLocationManagerDelegate,WXApiDelegate
     NSMutableDictionary *_toUpdateNameDic;
     NSDictionary *_newVerDic;
     NSMutableDictionary *_toUpdateVerDic;
+    
+    BOOL isShow;//推送页面是否存在
+    GrabSingleViewController *single;
 }
 #define APP_ID @"wx433abee1998670ca"
 @end
@@ -247,6 +252,108 @@ CLLocationManagerDelegate,WXApiDelegate
     }
 }
 
+#pragma mark ---- 极光推送
+//自定义消息
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    NSLog(@"自定义消息:-----%@", notification.userInfo);
+    //推送是否打开
+    if ([MJYUtils mjy_isAllowedNotification]) {
+        //是否打开抢单页面
+        if (!isShow) {
+            isShow = YES;
+            NSDictionary *dic = [NSDictionary dictionary];
+            if (notification.userInfo.count == 1) {
+                dic = [JYJSON dictionaryOrArrayWithJSONSString:[notification.userInfo objectForKey:@"content"]];
+                
+            }else{
+                dic = [JYJSON dictionaryOrArrayWithJSONSString:[notification.userInfo objectForKey:@"message"]];
+            }
+            [self dataRequestWithMsgText:[dic objectForKey:@"msgText"]];
+            
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }else{
+            
+        }
+    }else{
+        
+    }
+}
+
+- (void)isShow
+{
+    isShow = NO;
+}
+
+//请求数据
+- (void)dataRequestWithMsgText:(NSString *)msgText
+{
+    [SVProgressHUD showWithStatus:k_Status_Load];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"CompetitionOrder.asmx/GetCompetitionOrderState"];
+    NSDictionary *paramDict = @{
+                                @"CompetitionOrderId":msgText
+                                };
+    
+    [ApplicationDelegate.httpManager POST:urlStr parameters:paramDict progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //http请求状态
+        if (task.state == NSURLSessionTaskStateCompleted) {
+            NSDictionary *jsonDic = [JYJSON dictionaryOrArrayWithJSONSData:responseObject];
+            NSLog(@"%@", jsonDic);
+            NSString *status = [NSString stringWithFormat:@"%@",jsonDic[@"Success"]];
+            if ([status isEqualToString:@"1"]) {
+                //成功返回
+                //data=0 可抢单状态
+                if ([[jsonDic objectForKey:@"Data"] isEqualToString:@"0"]) {
+                    single = [[GrabSingleViewController alloc] init];
+                    single.msgText = msgText;
+                    [self.window addSubview:single.view];
+                }
+                [SVProgressHUD dismiss];
+            } else {
+                [SVProgressHUD showErrorWithStatus:jsonDic[@"Message"]];
+            }
+            
+        } else {
+            [SVProgressHUD showErrorWithStatus:k_Error_Network];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //请求异常
+        [SVProgressHUD showErrorWithStatus:k_Error_Network];
+    }];
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:
+(void (^)(UIBackgroundFetchResult))completionHandler {
+    if (application.applicationState == 0) {
+        NSLog(@"我在前台哦");
+    }
+    [JPUSHService handleRemoteNotification:userInfo];
+    NSLog(@"收到通知:~~~~~~%@", userInfo);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJPFNetworkDidReceiveMessageNotification object:nil userInfo:userInfo];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
 
 #pragma mark - 应用生命周期管理
 
@@ -285,7 +392,19 @@ CLLocationManagerDelegate,WXApiDelegate
     
     [self loaction];
     
+    isShow = NO;
+    //极光推送
+    [JPUSHService setupWithOption:launchOptions appKey:appKey channel:channel apsForProduction:isProduction];
     
+    [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                      UIUserNotificationTypeSound |
+                                                      UIUserNotificationTypeAlert)
+                                          categories:nil];
+    
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
+    //自定义消息
+    [defaultCenter addObserver:self selector:@selector(isShow) name:@"orderIsShow" object:nil];
     
     return YES;
 }

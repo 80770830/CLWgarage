@@ -11,6 +11,7 @@
 #import "UserInforViewController.h"//修改用户信息
 #import "ZHQUtil.h"
 #import "UserInfo.h"//用户模型信息
+#import "JPUSHService.h"
 
 @interface LoginViewController ()
 {
@@ -313,6 +314,11 @@
                 
                 // 当前用户信息存入公共位置
                 UserInfo *userInfo = [[UserInfo alloc] initWithDic:jsonDic[@"Data"]];
+
+                //设置别名
+                NSString *str = [userInfo.user_Id stringByReplacingOccurrencesOfString:@"-" withString:@""];
+                [JPUSHService setTags:nil aliasInbackground:str];
+                
                 ApplicationDelegate.userInfo = userInfo;
                 ApplicationDelegate.isLogin = YES;
                 [self.navigationController popViewControllerAnimated:YES];
