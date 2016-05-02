@@ -33,10 +33,10 @@
     UITableView *userStoreTableView;
     NSString *userSeletedCity;//用户选择的城市(默认用户当前位置所在城市)
     NSString *userSeletedCityID;//用户选择的城市ID(默认用户当前位置所在城市
-//    NSMutableArray *carSparePartsArray;//汽车配件
+    //    NSMutableArray *carSparePartsArray;//汽车配件
     NSArray *CategoryArray;
-       int page;
-
+    int page;
+    
     
 }
 @property(nonatomic,strong) NSMutableArray *CategoryIdArray;//七个分类数组id
@@ -91,8 +91,8 @@
     
     [self initData];
     
-//    [self initUI];
-//    [self AddOrderByNetwork];
+    //    [self initUI];
+    //    [self AddOrderByNetwork];
     
 }
 
@@ -114,14 +114,14 @@
 {
     
     // Do any additional setup after loading the view.
-
+    
     UIBarButtonItem * leftBarButtonItem= [[UIBarButtonItem alloc] initWithTitle:@"车自联" style:UIBarButtonItemStylePlain target:self action:nil];
     //设置
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
-
+    
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70, 44)];
-   // btn.backgroundColor=[UIColor redColor];
+    // btn.backgroundColor=[UIColor redColor];
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [btn setTitle:cityName forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
@@ -149,8 +149,8 @@
 {
     [self getSevenCategoryFromNetwork];
     [self getMoreGoodsInfoFromNetwork];
-//    carSparePartsArray = [NSMutableArray array];
-
+    //    carSparePartsArray = [NSMutableArray array];
+    
     
     
     
@@ -161,25 +161,21 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     SearchBarViewController *searchBarVC=[[SearchBarViewController alloc]init];
     [self presentViewController:searchBarVC animated:YES completion:^{} ];
-   }
+}
 -(void)clickedBtn:(CategoryButton *)btn{
     [self setHidesBottomBarWhenPushed:YES];
     UIStoryboard *ShopSB = [UIStoryboard storyboardWithName:@"Shop" bundle:nil];
     ChoseSparePartsViewController *Contr = [ShopSB instantiateViewControllerWithIdentifier:@"ChoseSparePartsViewController"];
     Contr.categoryID=btn.stringID;
-      [self.navigationController pushViewController:Contr animated:YES];
-
+    [self.navigationController pushViewController:Contr animated:YES];
+    
     [self setHidesBottomBarWhenPushed:NO];
 }
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 //{
-//    
+//
 //    return userStoreTableView.mj_header;
 //}
-//返回某个section中rows的个数
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.carSparePartsArray.count;
-}
 
 
 #pragma mark - Target & Action
@@ -204,7 +200,7 @@
 - (void)loadNextPage
 {
     [userStoreTableView.mj_header beginRefreshing];
-
+    
     page ++ ;
     [self getMoreGoodsInfoFromNetwork];
     [userStoreTableView.mj_footer endRefreshing];
@@ -224,6 +220,8 @@
     [SVProgressHUD showWithStatus:k_Status_Load];
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"UsrStore.asmx/GetPartsList"];
+    
+    
     
     NSDictionary *paramDict = @{
                                 @"partsJson":@"",
@@ -245,7 +243,7 @@
                                           PartsListData *data=[PartsListData mj_objectWithKeyValues:jsonDic];
                                           if (data.Success) {
                                               [self.carSparePartsArray removeAllObjects];
-
+                                              
                                               for(PartsModal *modal in data.Data.Data)
                                               {
                                                   UserStoreModel *zm = [[UserStoreModel alloc] init];
@@ -262,7 +260,7 @@
                                               }
                                               [SVProgressHUD dismiss];
                                               [userStoreTableView reloadData];
-
+                                              
                                           } else {
                                               [SVProgressHUD showErrorWithStatus:k_Error_WebViewError];
                                               
@@ -304,7 +302,7 @@
                                                                    JSONObjectWithData:responseObject
                                                                    options:kNilOptions
                                                                    error:&error];
-//                                          CategoryModal *data=[CategoryModal mj_objectWithKeyValues:jsonDic];
+                                          //                                          CategoryModal *data=[CategoryModal mj_objectWithKeyValues:jsonDic];
                                           if ([[jsonDic objectForKey:@"Success"]boolValue]) {
                                               CategoryArray=[[jsonDic objectForKey:@"Data"]componentsSeparatedByString:@"\""];
                                               NSString *string;
@@ -323,9 +321,9 @@
                                                   {
                                                       [self.CategoryImgUrlArray addObject:[CategoryArray objectAtIndex:i+2]];
                                                   }
-                                                      
+                                                  
                                               }
-                                    
+                                              
                                               [SVProgressHUD dismiss];
                                               [self initUI];
                                               [MJYUtils mjy_hiddleExtendCellForTableView:userStoreTableView];
@@ -399,9 +397,9 @@
     }];
     [userStoreTableView.mj_header beginRefreshing];
 }
+#pragma mark -- UITableViewDelegate
 
 
-//这个方法是用来创建cell对象，并且给cell设置相关属性的
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
@@ -421,10 +419,9 @@
     return 1;
 }
 
-#pragma mark -- UITableViewDelegate
 //返回cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-      return 100 ;
+    return 100 ;
 }
 //选中cell时调起的方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -440,6 +437,10 @@
     
 }
 
+//返回某个section中rows的个数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.carSparePartsArray.count;
+}
 
 
 
