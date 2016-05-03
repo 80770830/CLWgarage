@@ -39,11 +39,12 @@
 		292D9A4B1CC85EC9001B0CE8 /* returnDataPartsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 292D9A4A1CC85EC9001B0CE8 /* returnDataPartsList.m */; };
 		292D9A4E1CC85F68001B0CE8 /* returnDataInfoPartsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 292D9A4D1CC85F68001B0CE8 /* returnDataInfoPartsList.m */; };
 		292D9A511CC85F80001B0CE8 /* returnDataDetailPartsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 292D9A501CC85F80001B0CE8 /* returnDataDetailPartsList.m */; };
+		2939E9B21CD759AC001984BE /* ProductDetailContr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2939E9B01CD759AC001984BE /* ProductDetailContr.m */; };
+		2939E9B31CD759AC001984BE /* ProductDetailContr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2939E9B11CD759AC001984BE /* ProductDetailContr.xib */; };
 		296F99C11CB77621008402F0 /* GoodInfoReturn.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99C01CB77621008402F0 /* GoodInfoReturn.m */; };
 		296F99C41CB7764E008402F0 /* GoodInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99C31CB7764E008402F0 /* GoodInfoData.m */; };
 		296F99C71CB77743008402F0 /* ImgModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99C61CB77743008402F0 /* ImgModal.m */; };
 		296F99CA1CB777BF008402F0 /* CarModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99C91CB777BF008402F0 /* CarModal.m */; };
-		296F99DD1CB79465008402F0 /* UIScrollView+JYPaging.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99DC1CB79465008402F0 /* UIScrollView+JYPaging.m */; };
 		296F99F31CB936B7008402F0 /* PartsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99EC1CB936B7008402F0 /* PartsData.m */; };
 		296F99F41CB936B7008402F0 /* PartsListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99EE1CB936B7008402F0 /* PartsListData.m */; };
 		296F99F51CB936B7008402F0 /* PartsModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99F01CB936B7008402F0 /* PartsModal.m */; };
@@ -51,8 +52,6 @@
 		296F99FA1CB93732008402F0 /* StoreReturnData.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99F91CB93732008402F0 /* StoreReturnData.m */; };
 		296F99FD1CB93758008402F0 /* StoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F99FC1CB93758008402F0 /* StoreData.m */; };
 		296F9A021CB93FCE008402F0 /* ShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F9A011CB93FCE008402F0 /* ShopVC.m */; };
-		296F9A091CB9404D008402F0 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F9A041CB9404D008402F0 /* ProductDetailViewController.m */; };
-		296F9A0A1CB9404D008402F0 /* ProductDetailViewControllera.xib in Resources */ = {isa = PBXBuildFile; fileRef = 296F9A051CB9404D008402F0 /* ProductDetailViewControllera.xib */; };
 		296F9A0B1CB9404D008402F0 /* ProductInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F9A071CB9404D008402F0 /* ProductInfoViewController.m */; };
 		296F9A0C1CB9404D008402F0 /* ProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 296F9A081CB9404D008402F0 /* ProductInfoViewController.xib */; };
 		2996DD7B1CC8C0BC00EB29EF /* BuyNowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2996DD791CC8C0BC00EB29EF /* BuyNowController.m */; };
@@ -295,6 +294,9 @@
 		292D9A4D1CC85F68001B0CE8 /* returnDataInfoPartsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = returnDataInfoPartsList.m; sourceTree = "<group>"; };
 		292D9A4F1CC85F80001B0CE8 /* returnDataDetailPartsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = returnDataDetailPartsList.h; sourceTree = "<group>"; };
 		292D9A501CC85F80001B0CE8 /* returnDataDetailPartsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = returnDataDetailPartsList.m; sourceTree = "<group>"; };
+		2939E9AF1CD759AC001984BE /* ProductDetailContr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailContr.h; path = "商品评价/ProductDetailContr.h"; sourceTree = "<group>"; };
+		2939E9B01CD759AC001984BE /* ProductDetailContr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailContr.m; path = "商品评价/ProductDetailContr.m"; sourceTree = "<group>"; };
+		2939E9B11CD759AC001984BE /* ProductDetailContr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductDetailContr.xib; path = "商品评价/ProductDetailContr.xib"; sourceTree = "<group>"; };
 		296F99BF1CB77621008402F0 /* GoodInfoReturn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodInfoReturn.h; sourceTree = "<group>"; };
 		296F99C01CB77621008402F0 /* GoodInfoReturn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodInfoReturn.m; sourceTree = "<group>"; };
 		296F99C21CB7764E008402F0 /* GoodInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodInfoData.h; sourceTree = "<group>"; };
@@ -303,8 +305,6 @@
 		296F99C61CB77743008402F0 /* ImgModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgModal.m; sourceTree = "<group>"; };
 		296F99C81CB777BF008402F0 /* CarModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModal.h; sourceTree = "<group>"; };
 		296F99C91CB777BF008402F0 /* CarModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModal.m; sourceTree = "<group>"; };
-		296F99DB1CB79465008402F0 /* UIScrollView+JYPaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JYPaging.h"; sourceTree = "<group>"; };
-		296F99DC1CB79465008402F0 /* UIScrollView+JYPaging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+JYPaging.m"; sourceTree = "<group>"; };
 		296F99EB1CB936B7008402F0 /* PartsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartsData.h; sourceTree = "<group>"; };
 		296F99EC1CB936B7008402F0 /* PartsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartsData.m; sourceTree = "<group>"; };
 		296F99ED1CB936B7008402F0 /* PartsListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartsListData.h; sourceTree = "<group>"; };
@@ -319,9 +319,6 @@
 		296F99FC1CB93758008402F0 /* StoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreData.m; sourceTree = "<group>"; };
 		296F9A001CB93FCE008402F0 /* ShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopVC.h; sourceTree = "<group>"; };
 		296F9A011CB93FCE008402F0 /* ShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopVC.m; sourceTree = "<group>"; };
-		296F9A031CB9404D008402F0 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
-		296F9A041CB9404D008402F0 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
-		296F9A051CB9404D008402F0 /* ProductDetailViewControllera.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewControllera.xib; sourceTree = "<group>"; };
 		296F9A061CB9404D008402F0 /* ProductInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfoViewController.h; sourceTree = "<group>"; };
 		296F9A071CB9404D008402F0 /* ProductInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfoViewController.m; sourceTree = "<group>"; };
 		296F9A081CB9404D008402F0 /* ProductInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductInfoViewController.xib; sourceTree = "<group>"; };
@@ -979,16 +976,6 @@
 			name = "oyj-Contr";
 			sourceTree = "<group>";
 		};
-		296F99DA1CB79465008402F0 /* Paging */ = {
-			isa = PBXGroup;
-			children = (
-				296F99DB1CB79465008402F0 /* UIScrollView+JYPaging.h */,
-				296F99DC1CB79465008402F0 /* UIScrollView+JYPaging.m */,
-			);
-			name = Paging;
-			path = ../Paging;
-			sourceTree = "<group>";
-		};
 		296F99EA1CB93687008402F0 /* 商品列表 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1031,16 +1018,15 @@
 			isa = PBXGroup;
 			children = (
 				2996DD771CC8C04300EB29EF /* 立即购买 */,
-				296F99DA1CB79465008402F0 /* Paging */,
 				291667D31CBA11D700EEF665 /* 图文详情 */,
 				291667D11CBA11D700EEF665 /* 产品参数 */,
 				291667D21CBA11D700EEF665 /* 商品评价 */,
 				296F9A061CB9404D008402F0 /* ProductInfoViewController.h */,
 				296F9A071CB9404D008402F0 /* ProductInfoViewController.m */,
 				296F9A081CB9404D008402F0 /* ProductInfoViewController.xib */,
-				296F9A031CB9404D008402F0 /* ProductDetailViewController.h */,
-				296F9A041CB9404D008402F0 /* ProductDetailViewController.m */,
-				296F9A051CB9404D008402F0 /* ProductDetailViewControllera.xib */,
+				2939E9AF1CD759AC001984BE /* ProductDetailContr.h */,
+				2939E9B01CD759AC001984BE /* ProductDetailContr.m */,
+				2939E9B11CD759AC001984BE /* ProductDetailContr.xib */,
 			);
 			path = "商品详细";
 			sourceTree = "<group>";
@@ -2137,13 +2123,13 @@
 				C9D829661C49F4130063EBC6 /* MyShop.storyboard in Resources */,
 				291667DD1CBA123900EEF665 /* GoodsDescriptionViewController.xib in Resources */,
 				DF0991D51C5B3223001B6F2D /* ChosePlaceViewController.xib in Resources */,
+				2939E9B31CD759AC001984BE /* ProductDetailContr.xib in Resources */,
 				29BEB6F61CCA7EB300532C6F /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				2996DD7C1CC8C0BC00EB29EF /* BuyNowController.xib in Resources */,
 				98E8C1C51C49E5EB00310091 /* Login.storyboard in Resources */,
 				98E8C1BA1C49E5EB00310091 /* LaunchScreen.storyboard in Resources */,
 				DF0991DA1C5B44AC001B6F2D /* repairCarStoreViewController.xib in Resources */,
 				296F9A0C1CB9404D008402F0 /* ProductInfoViewController.xib in Resources */,
-				296F9A0A1CB9404D008402F0 /* ProductDetailViewControllera.xib in Resources */,
 				987D78B61C9CF847005A0A2C /* UsrStoreTableViewCell.xib in Resources */,
 				98E8C1B81C49E5EB00310091 /* address_list.json in Resources */,
 				9879BDE91CCB245700AAED9C /* ReturnGoodsViewController.xib in Resources */,
@@ -2232,7 +2218,6 @@
 				2F35F5021CD4592800900FE2 /* GrabSingleViewController.m in Sources */,
 				296F99C41CB7764E008402F0 /* GoodInfoData.m in Sources */,
 				C9622DBE1C4B40E700AE849E /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
-				296F9A091CB9404D008402F0 /* ProductDetailViewController.m in Sources */,
 				296F99F51CB936B7008402F0 /* PartsModal.m in Sources */,
 				DF0991DB1C5C5831001B6F2D /* repairCarStoreViewController.m in Sources */,
 				291667E11CBA19F600EEF665 /* PictureInfController.m in Sources */,
@@ -2296,7 +2281,6 @@
 				29BEB6C01CCA7EA200532C6F /* RSADataVerifier.m in Sources */,
 				29BEB6BE1CCA7EA200532C6F /* openssl_wrapper.m in Sources */,
 				2F35F5041CD4592800900FE2 /* GrabSingleView.m in Sources */,
-				296F99DD1CB79465008402F0 /* UIScrollView+JYPaging.m in Sources */,
 				9879BDEE1CCB245700AAED9C /* GoodModel.m in Sources */,
 				98E8C1C31C49E5EB00310091 /* UserInfo.m in Sources */,
 				DF0991D41C5B3223001B6F2D /* ChosePlaceViewController.m in Sources */,
@@ -2318,6 +2302,7 @@
 				296F99CA1CB777BF008402F0 /* CarModal.m in Sources */,
 				29BEB6B91CCA7EA200532C6F /* base64.m in Sources */,
 				2916680B1CBB80FE00EEF665 /* ShopCartDetailData.m in Sources */,
+				2939E9B21CD759AC001984BE /* ProductDetailContr.m in Sources */,
 				C9622DBA1C4B40E700AE849E /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				C9622DC41C4B40E700AE849E /* ZLPhotoPickerGroup.m in Sources */,
 				C9622DB91C4B40E700AE849E /* ZLCameraViewController.m in Sources */,

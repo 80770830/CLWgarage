@@ -9,18 +9,30 @@
          contextName = "-[BuyNowController buyNowToNetwork]:BuyNowController.m">
       </ContextState>
       <ContextState
-         contextName = "__58-[ProductInfoViewController getGoodsDetailInfoFromNetwork]_block_invoke_2:ProductInfoViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "goodInfoReturn">
-            </PersistentString>
-            <PersistentString
-               value = "self.goodInfoReturn">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "-[PayController getSubString:]:PayController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__60-[ChoseSparePartsViewController getMoreGoodsInfoFromNetwork]_block_invoke_2:ChoseSparePartsViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[ProductInfoViewController addCartAction:]:ProductInfoViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ProductInfoViewController scrollViewDidScroll:]:ProductInfoViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "SCREEN_HEIGHT">
+            </PersistentString>
+            <PersistentString
+               value = "scrollView.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "scrollView.tag">
+            </PersistentString>
+            <PersistentString
+               value = "scrollView.frame">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[PayController selectButtonAction:]:PayController.m">
@@ -51,7 +63,7 @@
          contextName = "-[TheOrderViewController tableView:cellForRowAtIndexPath:]:TheOrderViewController.m">
       </ContextState>
       <ContextState
-         contextName = "-[PayController getAlipayOrderInfoFromNetWork]:PayController.m">
+         contextName = "-[TheOrderViewController GetOrderListByNetwork]:TheOrderViewController.m">
          <PersistentStrings>
             <PersistentString
                value = "paramDict">
@@ -62,7 +74,7 @@
          contextName = "-[ProductInfoViewController buyNowAction:]:ProductInfoViewController.m">
       </ContextState>
       <ContextState
-         contextName = "-[TheOrderViewController GetOrderListByNetwork]:TheOrderViewController.m">
+         contextName = "-[PayController getAlipayOrderInfoFromNetWork]:PayController.m">
          <PersistentStrings>
             <PersistentString
                value = "paramDict">
@@ -81,6 +93,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[PictureInfController viewWillAppear:]:PictureInfController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ProductInfoViewController setScrollImage]:ProductInfoViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__58-[ProductInfoViewController getGoodsDetailInfoFromNetwork]_block_invoke_2:ProductInfoViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "goodInfoReturn">
+            </PersistentString>
+            <PersistentString
+               value = "self.goodInfoReturn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[ProductInfoViewController addCartToNetwork]:ProductInfoViewController.m">
          <PersistentStrings>
             <PersistentString
@@ -90,9 +119,6 @@
                value = "self.goodInfoReturn">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[PayController getSubString:]:PayController.m">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

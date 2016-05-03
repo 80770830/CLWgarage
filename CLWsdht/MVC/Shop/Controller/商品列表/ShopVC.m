@@ -27,6 +27,7 @@
 #import "ScrollViewTestViewController.h"
 #import "ProductInfoViewController.h"
 
+#import "ProductDetailContr.h"
 
 #define  Cell_Height (self.view.frame.size.height-((25+( self.view.frame.size.width-70)/4)+(5+20+( self.view.frame.size.width-70)/4)+20+40))*2/5.0
 @interface ShopVC ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>{
@@ -433,7 +434,10 @@
     ScrollViewTestVC.storeMobile=good.storeMobile;
     [self.navigationController pushViewController:ScrollViewTestVC animated:YES];
     [self setHidesBottomBarWhenPushed:NO];
-    
+//    PictureInfController *contr=[[PictureInfController alloc]init];
+//    [self.navigationController pushViewController:contr animated:YES];
+//    [self setHidesBottomBarWhenPushed:NO];
+  
     
 }
 

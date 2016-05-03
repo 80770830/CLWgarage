@@ -7,8 +7,7 @@
 //
 
 #import "ProductInfoViewController.h"
-#import "UIScrollView+JYPaging.h"
-#import "ProductDetailViewController.h"
+//#import "UIScrollView+JYPaging.h"
 #import "GoodInfoReturn.h"
 #import "MJExtension.h"
 #import "ImgModal.h"
@@ -16,21 +15,39 @@
 #import "CheckClassifyViewController.h"
 #import "PartsListContr.h"
 #import "BuyNowController.h"
+#import "ProductDetailContr.h"
+
+#import "PictureInfController.h"
+#import "GoodsDescriptionViewController.h"
+#import "GoodsEvaluateController.h"
 
 
-#define DEVICE_3_5_INCH ([[UIScreen mainScreen] bounds].size.height == 480)
-#define DEVICE_4_0_INCH ([[UIScreen mainScreen] bounds].size.height == 568)
-#define DEVICE_4_7_INCH ([[UIScreen mainScreen] bounds].size.height == 667)
-#define DEVICE_5_5_INCH ([[UIScreen mainScreen] bounds].size.height == 736)
+#define IPHONE_W ([UIScreen mainScreen].bounds.size.width)
+#define IPHONE_H ([UIScreen mainScreen].bounds.size.height)
+
 @interface ProductInfoViewController (){
     StoreReturnData *storeInfoReturn;//配件商详情数据
     NSString *UsrStoreId;
     
     UIScrollView *detailScrollView;
 }
+
+/**
+ * 整体scrollWholeView.tag=0；
+ * 商品详情scrollView.tag=1；
+ * 商品详情切换scrollV2.tag=2
+ * 图文详情scrollview.tag=3
+ *
+ *
+ */
 //界面元素
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIScrollView *pictureScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollWholeView;//最大scrollView tag=0
+
+
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;//商品详细 tag=1
+
+@property (weak, nonatomic) IBOutlet UIScrollView *pictureScrollView;//商品详细中轮播图片scrollview
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *price;
@@ -54,9 +71,71 @@
 @property (strong,nonatomic)GoodInfoReturn *goodInfoReturn;//商品详情总体数据
 
 @property(strong,nonatomic)BuyNowController *contr;//立即购买Contr
+@property(strong,nonatomic)UIScrollView *scrollV2;//商品详情切换 tag=2
+
+@property(strong,nonatomic)ProductDetailContr *detailVC;//商品更多信息
+
+
+@property(strong,nonatomic)PictureInfController *pictureInfContr;//图文详情
+@property(strong,nonatomic)GoodsDescriptionViewController *goodsDescriptionViewContr;//产品参数
+@property(strong,nonatomic)GoodsEvaluateController *goodsEvaluateContr;//商品评价
+
 @end
 
 @implementation ProductInfoViewController
+-(PictureInfController *)pictureInfContr
+{
+    if (!_pictureInfContr) {
+        self.pictureInfContr=[[PictureInfController alloc]init];
+         self.pictureInfContr.view.frame=CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+//        self.pictureInfContr.scrollView.delegate=self;
+//        self.pictureInfContr.scrollView.tag=3;//图文详情
+    }
+    return _pictureInfContr;
+}
+
+-(GoodsDescriptionViewController *)goodsDescriptionViewContr
+{
+    if (!_goodsDescriptionViewContr) {
+        self.goodsDescriptionViewContr=[[GoodsDescriptionViewController alloc]init];
+        self.goodsDescriptionViewContr.view.frame=CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        
+    }
+    return _goodsDescriptionViewContr;
+}
+
+-(GoodsEvaluateController *)goodsEvaluateContr
+{
+    if (!_goodsEvaluateContr) {
+        self.goodsEvaluateContr=[[GoodsEvaluateController alloc]init];
+        self.goodsEvaluateContr.view.frame=CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+    }
+    return _goodsEvaluateContr;
+}
+
+
+-(UIScrollView *)scrollV2
+{
+    if (!_scrollV2) {
+        self.scrollV2=[[UIScrollView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-50, SCREEN_WIDTH, SCREEN_HEIGHT-50)];
+        self.scrollV2.tag=2;
+        self.detailVC = [[ProductDetailContr alloc]init];
+        [self.detailVC loadView];
+        self.detailVC.scrollView.delegate=self;
+        [self.detailVC.segmentControl addTarget:self action:@selector(segmentValueChange:) forControlEvents:UIControlEventValueChanged];
+        [self segmentValueChange:self.detailVC.segmentControl];
+        [self.scrollV2 addSubview:self.detailVC.view];
+        [self.scrollWholeView addSubview:self.scrollV2];
+        self.scrollV2.delegate=self;
+        self.scrollV2.showsVerticalScrollIndicator = FALSE;
+        
+        
+    }
+    return _scrollV2;
+}
+
+
 -(BuyNowController *)contr
 {
     if (!_contr) {
@@ -67,18 +146,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.scrollWholeView.contentSize=CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT*2-50);
+    self.scrollWholeView.pagingEnabled = YES;
+    self.scrollWholeView.scrollEnabled = NO;
+    self.scrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+            self.scrollWholeView.contentOffset = CGPointMake(0, SCREEN_HEIGHT-50);
+            [self.pictureInfContr viewWillAppear:YES];
+        } completion:^(BOOL finished) {
+            [self.scrollView.mj_footer endRefreshing];
+        }];
+    }];
+    self.scrollV2.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+            self.scrollWholeView.contentOffset = CGPointMake(0, 0);
+        } completion:^(BOOL finished) {
+            [self.scrollV2.mj_header endRefreshing];
+        }];
+    }];
+
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-//
-    _scrollView.contentSize = CGSizeMake(0, 637);
-    
-        ProductDetailViewController *detailVC = [[ProductDetailViewController alloc] init];
-//    [self addChildViewController:detailVC];
-    
-    // just for force load view
-    if (detailVC.view != nil) {
-        _scrollView.secondScrollView = detailVC.scrollView;
-    }
+
     self.title=@"商品详情";
     
     [self initData];
@@ -113,6 +201,9 @@
     cycleScrollView.currentPageDotColor = [UIColor whiteColor];
     cycleScrollView.imageURLStringsGroup = self.imageArray;
     [self.pictureScrollView addSubview:cycleScrollView];
+    //图文详情添加数据
+    self.pictureInfContr.imageArray=self.imageArray;
+
 }
 //更新商品基本数据
 -(void)updateGoodsBasicInfoUI{
@@ -166,6 +257,7 @@
                                           if (self.goodInfoReturn.Success) {
                                               UsrStoreId=self.goodInfoReturn.Data.UsrStoreId;
                                               [self updateGoodsBasicInfoUI];
+                                              [self segmentValueChange:self.detailVC.segmentControl];
                                               self.contr.goodInfo=self.goodInfoReturn.Data;
                                               [SVProgressHUD dismiss];
                                               
@@ -319,5 +411,78 @@
         
     }];
 }
+#pragma mark - 商品详情 信息切换
+
+- (IBAction)segmentValueChange:(UISegmentedControl*)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+        {
+            float height=self.imageArray.count*260+100;
+            self.detailVC.view.frame=CGRectMake(0, 0, SCREEN_WIDTH, height);
+            self.scrollV2.contentSize=CGSizeMake(SCREEN_WIDTH, height);
+
+            [self.goodsDescriptionViewContr.view removeFromSuperview];
+            [self.goodsEvaluateContr.view removeFromSuperview];
+            [self.detailVC.scrollView addSubview:self.pictureInfContr.view];
+            
+        }
+            break;
+        case 1:
+        {
+            self.detailVC.view.frame=CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+            self.scrollV2.contentSize=CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+            [self.pictureInfContr.view removeFromSuperview];
+            [self.goodsEvaluateContr.view removeFromSuperview];
+            self.goodsDescriptionViewContr.name.text=self.goodInfoReturn.Data.Name;
+            self.goodsDescriptionViewContr.style.text=self.goodInfoReturn.Data.TypeName;
+            self.goodsDescriptionViewContr.kind.text=self.goodInfoReturn.Data.UseForName;
+            self.goodsDescriptionViewContr.color.text=self.goodInfoReturn.Data.PurityName;
+            self.goodsDescriptionViewContr.origin.text=self.goodInfoReturn.Data.PartsSrcName;
+            self.goodsDescriptionViewContr.descriptionLabel.text=self.goodInfoReturn.Data.Description;
+            [self.detailVC.scrollView addSubview:self.goodsDescriptionViewContr.view];
+            
+            
+        }
+            break;
+        case 2:
+        {
+            self.detailVC.view.frame=CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+            self.scrollV2.contentSize=CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+            [self.pictureInfContr.view removeFromSuperview];
+            [self.goodsDescriptionViewContr.view removeFromSuperview];
+            [self.detailVC.scrollView addSubview:self.goodsEvaluateContr.view];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+}
+//- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+//    if (scrollView.tag == kInnerScrollViewTag) {
+//        [scrollView resignFirstResponder];
+//    }
+//}
+
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    if (scrollView.tag == 2) {
+//        NSLog(@"%f,%f",scrollView.contentOffset.y,SCREEN_HEIGHT-50);
+//        if (scrollView.contentOffset.y>0) {
+//            [scrollView resignFirstResponder];
+//            [self.pictureInfContr.scrollView becomeFirstResponder];
+//        }
+//        
+//    }
+//}
+//-(void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+//    if (scrollView.tag == 3) {//当前图文详情scrollview滚动到顶
+//        [scrollView resignFirstResponder];
+//        [self.scrollV2 becomeFirstResponder];
+//    }
+//}
 
 @end

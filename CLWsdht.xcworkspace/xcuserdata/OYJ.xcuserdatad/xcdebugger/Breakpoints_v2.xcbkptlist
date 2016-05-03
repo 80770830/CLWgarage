@@ -86,13 +86,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLWsdht/MVC/Shop/Controller/&#x5546;&#x54c1;&#x8be6;&#x7ec6;/ProductInfoViewController.m"
-            timestampString = "482984850.97222"
+            timestampString = "483973131.948049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
-            landmarkName = "-addCartToNetwork"
-            landmarkType = "5">
+            startingLineNumber = "500"
+            endingLineNumber = "500">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -102,12 +100,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLWsdht/MVC/Shop/Controller/&#x5546;&#x54c1;&#x8be6;&#x7ec6;/ProductInfoViewController.m"
-            timestampString = "482984914.955121"
+            timestampString = "483973131.948049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "-addCartToNetwork"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
+            landmarkName = "-gotoShopAction:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -172,6 +170,22 @@
             startingLineNumber = "149"
             endingLineNumber = "149"
             landmarkName = "-getAlipayOrderInfoFromNetWork"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CLWsdht/MVC/Shop/Controller/&#x5546;&#x54c1;&#x8be6;&#x7ec6;/ProductInfoViewController.m"
+            timestampString = "483973131.948049"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "-segmentValueChange:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
