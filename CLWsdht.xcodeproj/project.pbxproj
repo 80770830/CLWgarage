@@ -111,6 +111,18 @@
 		29E754221CD09ED4006B21DF /* CategoryModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E754211CD09ED4006B21DF /* CategoryModal.m */; };
 		29E754281CD0B979006B21DF /* CategoryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E754271CD0B979006B21DF /* CategoryButton.m */; };
 		29E7542D1CD0BBCC006B21DF /* ChoseSparePartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E7542C1CD0BBCC006B21DF /* ChoseSparePartsViewController.m */; };
+		3A1B875E1CD9810400804C44 /* DemandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B875B1CD9810400804C44 /* DemandModel.m */; };
+		3A1B875F1CD9810400804C44 /* UserRespondDemandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B875D1CD9810400804C44 /* UserRespondDemandModel.m */; };
+		3A1B87721CD9816400804C44 /* UserAccountManagerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B87611CD9816400804C44 /* UserAccountManagerVC.m */; };
+		3A1B87731CD9816400804C44 /* UserAddressEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B87631CD9816400804C44 /* UserAddressEditVC.m */; };
+		3A1B87741CD9816400804C44 /* UserAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B87651CD9816400804C44 /* UserAddressVC.m */; };
+		3A1B87751CD9816400804C44 /* UserDemandInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B87671CD9816400804C44 /* UserDemandInfoVC.m */; };
+		3A1B87761CD9816400804C44 /* UserDemandVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B87691CD9816400804C44 /* UserDemandVC.m */; };
+		3A1B87771CD9816400804C44 /* UserEditPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B876B1CD9816400804C44 /* UserEditPasswordVC.m */; };
+		3A1B87781CD9816400804C44 /* UserEditTelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B876D1CD9816400804C44 /* UserEditTelVC.m */; };
+		3A1B87791CD9816400804C44 /* UserEditUserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B876F1CD9816400804C44 /* UserEditUserInfoVC.m */; };
+		3A1B877A1CD9816400804C44 /* UserMsgVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B87711CD9816400804C44 /* UserMsgVC.m */; };
+		3A1B877D1CD9825800804C44 /* per_buyers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1B877C1CD9825800804C44 /* per_buyers.png */; };
 		9843A1581C9CECEF00FAE890 /* HmacSHA256.m in Sources */ = {isa = PBXBuildFile; fileRef = 9843A1571C9CECEF00FAE890 /* HmacSHA256.m */; };
 		9879BDE11CCB245700AAED9C /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9879BDC51CCB245700AAED9C /* HomeVC.m */; };
 		9879BDE21CCB245700AAED9C /* MaintainOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9879BDC71CCB245700AAED9C /* MaintainOrderViewController.m */; };
@@ -485,6 +497,29 @@
 		29E7542B1CD0BBCC006B21DF /* ChoseSparePartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseSparePartsViewController.h; sourceTree = "<group>"; };
 		29E7542C1CD0BBCC006B21DF /* ChoseSparePartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseSparePartsViewController.m; sourceTree = "<group>"; };
 		39BB54A6DD09D6E8547EFEDB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3A1B875A1CD9810400804C44 /* DemandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemandModel.h; sourceTree = "<group>"; };
+		3A1B875B1CD9810400804C44 /* DemandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemandModel.m; sourceTree = "<group>"; };
+		3A1B875C1CD9810400804C44 /* UserRespondDemandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRespondDemandModel.h; sourceTree = "<group>"; };
+		3A1B875D1CD9810400804C44 /* UserRespondDemandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRespondDemandModel.m; sourceTree = "<group>"; };
+		3A1B87601CD9816400804C44 /* UserAccountManagerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountManagerVC.h; sourceTree = "<group>"; };
+		3A1B87611CD9816400804C44 /* UserAccountManagerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountManagerVC.m; sourceTree = "<group>"; };
+		3A1B87621CD9816400804C44 /* UserAddressEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAddressEditVC.h; sourceTree = "<group>"; };
+		3A1B87631CD9816400804C44 /* UserAddressEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAddressEditVC.m; sourceTree = "<group>"; };
+		3A1B87641CD9816400804C44 /* UserAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAddressVC.h; sourceTree = "<group>"; };
+		3A1B87651CD9816400804C44 /* UserAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAddressVC.m; sourceTree = "<group>"; };
+		3A1B87661CD9816400804C44 /* UserDemandInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDemandInfoVC.h; sourceTree = "<group>"; };
+		3A1B87671CD9816400804C44 /* UserDemandInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDemandInfoVC.m; sourceTree = "<group>"; };
+		3A1B87681CD9816400804C44 /* UserDemandVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDemandVC.h; sourceTree = "<group>"; };
+		3A1B87691CD9816400804C44 /* UserDemandVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDemandVC.m; sourceTree = "<group>"; };
+		3A1B876A1CD9816400804C44 /* UserEditPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditPasswordVC.h; sourceTree = "<group>"; };
+		3A1B876B1CD9816400804C44 /* UserEditPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditPasswordVC.m; sourceTree = "<group>"; };
+		3A1B876C1CD9816400804C44 /* UserEditTelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditTelVC.h; sourceTree = "<group>"; };
+		3A1B876D1CD9816400804C44 /* UserEditTelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditTelVC.m; sourceTree = "<group>"; };
+		3A1B876E1CD9816400804C44 /* UserEditUserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditUserInfoVC.h; sourceTree = "<group>"; };
+		3A1B876F1CD9816400804C44 /* UserEditUserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditUserInfoVC.m; sourceTree = "<group>"; };
+		3A1B87701CD9816400804C44 /* UserMsgVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMsgVC.h; sourceTree = "<group>"; };
+		3A1B87711CD9816400804C44 /* UserMsgVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMsgVC.m; sourceTree = "<group>"; };
+		3A1B877C1CD9825800804C44 /* per_buyers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = per_buyers.png; sourceTree = "<group>"; };
 		42BD9AE0019662919FB673B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9843A1561C9CECEF00FAE890 /* HmacSHA256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HmacSHA256.h; sourceTree = "<group>"; };
 		9843A1571C9CECEF00FAE890 /* HmacSHA256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HmacSHA256.m; sourceTree = "<group>"; };
@@ -1328,6 +1363,25 @@
 			path = "七个商品分类子页面";
 			sourceTree = "<group>";
 		};
+		3A1B87591CD9810400804C44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B875A1CD9810400804C44 /* DemandModel.h */,
+				3A1B875B1CD9810400804C44 /* DemandModel.m */,
+				3A1B875C1CD9810400804C44 /* UserRespondDemandModel.h */,
+				3A1B875D1CD9810400804C44 /* UserRespondDemandModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A1B877B1CD9825800804C44 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B877C1CD9825800804C44 /* per_buyers.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		3E236D2E4348547FAC6A846D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1458,6 +1512,7 @@
 		98E8C1681C49E50800310091 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A1B877B1CD9825800804C44 /* image */,
 				98E8C1821C49E5EB00310091 /* address_list.json */,
 				DF0991CA1C585634001B6F2D /* Assets.xcassets */,
 				98E8C1791C49E50800310091 /* LaunchScreen.storyboard */,
@@ -1562,6 +1617,7 @@
 		98E8C1B21C49E5EB00310091 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				3A1B87591CD9810400804C44 /* Model */,
 				98E8C1B31C49E5EB00310091 /* Controller */,
 				98E8C1B61C49E5EB00310091 /* View */,
 			);
@@ -1571,6 +1627,24 @@
 		98E8C1B31C49E5EB00310091 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3A1B87601CD9816400804C44 /* UserAccountManagerVC.h */,
+				3A1B87611CD9816400804C44 /* UserAccountManagerVC.m */,
+				3A1B87621CD9816400804C44 /* UserAddressEditVC.h */,
+				3A1B87631CD9816400804C44 /* UserAddressEditVC.m */,
+				3A1B87641CD9816400804C44 /* UserAddressVC.h */,
+				3A1B87651CD9816400804C44 /* UserAddressVC.m */,
+				3A1B87661CD9816400804C44 /* UserDemandInfoVC.h */,
+				3A1B87671CD9816400804C44 /* UserDemandInfoVC.m */,
+				3A1B87681CD9816400804C44 /* UserDemandVC.h */,
+				3A1B87691CD9816400804C44 /* UserDemandVC.m */,
+				3A1B876A1CD9816400804C44 /* UserEditPasswordVC.h */,
+				3A1B876B1CD9816400804C44 /* UserEditPasswordVC.m */,
+				3A1B876C1CD9816400804C44 /* UserEditTelVC.h */,
+				3A1B876D1CD9816400804C44 /* UserEditTelVC.m */,
+				3A1B876E1CD9816400804C44 /* UserEditUserInfoVC.h */,
+				3A1B876F1CD9816400804C44 /* UserEditUserInfoVC.m */,
+				3A1B87701CD9816400804C44 /* UserMsgVC.h */,
+				3A1B87711CD9816400804C44 /* UserMsgVC.m */,
 				98E8C1B41C49E5EB00310091 /* UserVC.h */,
 				98E8C1B51C49E5EB00310091 /* UserVC.m */,
 			);
@@ -2027,6 +2101,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1B877D1CD9825800804C44 /* per_buyers.png in Resources */,
 				DF7507911CCDBB9900BA40EB /* Home.storyboard in Resources */,
 				29BEB6F81CCA7EB300532C6F /* WeiboSDK.bundle in Resources */,
 				DF09918B1C55F6B7001B6F2D /* Shop.storyboard in Resources */,
@@ -2124,9 +2199,11 @@
 				291668141CBBF92A00EEF665 /* SelectButton.m in Sources */,
 				9879BDE21CCB245700AAED9C /* MaintainOrderViewController.m in Sources */,
 				296F99C71CB77743008402F0 /* ImgModal.m in Sources */,
+				3A1B87791CD9816400804C44 /* UserEditUserInfoVC.m in Sources */,
 				C9A0D7351C4A42BF0028EEB8 /* MyShopCarAccessoryCateInfo.m in Sources */,
 				291668391CC135CE00EEF665 /* CheckClassifyViewController.m in Sources */,
 				2996DD7B1CC8C0BC00EB29EF /* BuyNowController.m in Sources */,
+				3A1B87781CD9816400804C44 /* UserEditTelVC.m in Sources */,
 				98E8C1BD1C49E5EB00310091 /* CityListVC.m in Sources */,
 				C9342B311C4A2784000C8B97 /* MyShopCarBrandNameInfo.m in Sources */,
 				DF0991C81C5767C1001B6F2D /* ScrollViewTestViewController.m in Sources */,
@@ -2144,6 +2221,7 @@
 				291668241CBFE0E900EEF665 /* SectionFooterCell.m in Sources */,
 				296F99C11CB77621008402F0 /* GoodInfoReturn.m in Sources */,
 				29BEB7241CCAF40100532C6F /* UIViewController+DismissKeyboard.m in Sources */,
+				3A1B87761CD9816400804C44 /* UserDemandVC.m in Sources */,
 				296F99C41CB7764E008402F0 /* GoodInfoData.m in Sources */,
 				C9622DBE1C4B40E700AE849E /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
 				296F9A091CB9404D008402F0 /* ProductDetailViewController.m in Sources */,
@@ -2167,13 +2245,16 @@
 				DF7507991CCDC4E300BA40EB /* CustomAlertAction.m in Sources */,
 				292D9A4B1CC85EC9001B0CE8 /* returnDataPartsList.m in Sources */,
 				C9A0D73E1C4A4B890028EEB8 /* MyShopCarAccessoryColorInfo.m in Sources */,
+				3A1B87751CD9816400804C44 /* UserDemandInfoVC.m in Sources */,
 				C9622DC91C4B40E700AE849E /* ZLPhotoPickerCollectionView.m in Sources */,
 				C9622DC01C4B40E700AE849E /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				98E8C1F21C49E60900310091 /* GTMBase64.m in Sources */,
+				3A1B875E1CD9810400804C44 /* DemandModel.m in Sources */,
 				296F9A021CB93FCE008402F0 /* ShopVC.m in Sources */,
 				29BEB6BA1CCA7EA200532C6F /* DataSigner.m in Sources */,
 				29BEB7071CCA7F5F00532C6F /* ApiXml.mm in Sources */,
 				C9622DC21C4B40E700AE849E /* ZLPhotoAssets.m in Sources */,
+				3A1B877A1CD9816400804C44 /* UserMsgVC.m in Sources */,
 				DF7507951CCDC4C000BA40EB /* MapSelectPosViewController.m in Sources */,
 				2916685D1CC1AF6800EEF665 /* PartsListContr.m in Sources */,
 				C9622DC81C4B40E700AE849E /* ZLPhotoPickerViewController.m in Sources */,
@@ -2182,12 +2263,15 @@
 				29E754281CD0B979006B21DF /* CategoryButton.m in Sources */,
 				29BEB7251CCAF40100532C6F /* UIViewController+WeChatAndAliPayMethod.m in Sources */,
 				291668571CC19A6B00EEF665 /* CheckClassifyCell3.m in Sources */,
+				3A1B87721CD9816400804C44 /* UserAccountManagerVC.m in Sources */,
 				9879BDF01CCB245700AAED9C /* OrderModel.m in Sources */,
 				C9A0D7321C4A2E2A0028EEB8 /* FSDropDownMenu.m in Sources */,
 				C9622DBB1C4B40E700AE849E /* ZLPhotoRect.m in Sources */,
 				296F9A0B1CB9404D008402F0 /* ProductInfoViewController.m in Sources */,
 				98E8C1EF1C49E60900310091 /* BaseViewController.m in Sources */,
 				C9622DD41C4B40EE00AE849E /* DACircularProgressView.m in Sources */,
+				3A1B87741CD9816400804C44 /* UserAddressVC.m in Sources */,
+				3A1B875F1CD9810400804C44 /* UserRespondDemandModel.m in Sources */,
 				29E754221CD09ED4006B21DF /* CategoryModal.m in Sources */,
 				29BEB6BD1CCA7EA200532C6F /* NSDataEx.m in Sources */,
 				9879BDE41CCB245700AAED9C /* MyOrderViewController.m in Sources */,
@@ -2203,6 +2287,7 @@
 				98E8C1C11C49E5EB00310091 /* AddressGroupJSONModel.m in Sources */,
 				98E8C1F61C49E60900310091 /* UIView+Border.m in Sources */,
 				C9D829671C49F4130063EBC6 /* MyShopCell.m in Sources */,
+				3A1B87731CD9816400804C44 /* UserAddressEditVC.m in Sources */,
 				29BEB7091CCA7F5F00532C6F /* WXUtil.mm in Sources */,
 				C9622DBD1C4B40E700AE849E /* ZLPhotoPickerBrowserViewController.m in Sources */,
 				29A1DDB91CC5D707009DCA94 /* CheckClassifyCell.m in Sources */,
@@ -2254,6 +2339,7 @@
 				C9622DCB1C4B40E700AE849E /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */,
 				987D78B51C9CF847005A0A2C /* UsrStoreTableViewCell.m in Sources */,
 				291667DC1CBA123900EEF665 /* GoodsDescriptionViewController.m in Sources */,
+				3A1B87771CD9816400804C44 /* UserEditPasswordVC.m in Sources */,
 				2916681E1CBFE08B00EEF665 /* SectionTitleCell.m in Sources */,
 				29BEB7081CCA7F5F00532C6F /* payRequsestHandler.mm in Sources */,
 				C9622DB51C4B40E700AE849E /* UIView+ZLExtension.m in Sources */,
