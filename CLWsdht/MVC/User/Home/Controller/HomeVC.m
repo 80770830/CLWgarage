@@ -202,6 +202,7 @@
 
 #pragma mark -我要买件
 - (IBAction)neederBtn:(UIButton *)sender {
+    ApplicationDelegate.tabbarController.selectedIndex=1;
 }
 
 #pragma mark -- 我的订单
