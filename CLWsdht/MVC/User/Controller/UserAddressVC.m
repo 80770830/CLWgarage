@@ -29,6 +29,7 @@
 
     [self initData];
     //[self initUI];
+    //sync test
 }
 
 -(void)viewWillAppear:(BOOL)animated
