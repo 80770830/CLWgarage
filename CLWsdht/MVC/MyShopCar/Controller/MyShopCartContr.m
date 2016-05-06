@@ -23,8 +23,8 @@
 
 @interface MyShopCartContr ()<UITableViewDelegate,UITableViewDataSource>
 {
-    BOOL CartGoodsState[1000][1000];
-    BOOL CartSectionState[1000];
+    BOOL CartGoodsState[1000][1000];//存每个商品勾选状态
+    BOOL CartSectionState[1000];//存每个店铺勾选状态
 }
 @property (weak, nonatomic) IBOutlet UITableView *carTableView;
 @property (weak, nonatomic) IBOutlet SelectButton *selectAllButton;
@@ -41,19 +41,20 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self initData];
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self initData];
-//    CartGoodsState[1][0]=true;
-//    if (CartGoodsState[2][0]==false) {
-//        NSLog(@"false");
-//    }
-//    if (CartGoodsState[1][0]==true) {
-//        NSLog(@"true");
-//    }
-
+    self.title=@"购物车";
+    //    [self initData];
+    //    CartGoodsState[1][0]=true;
+    //    if (CartGoodsState[2][0]==false) {
+    //        NSLog(@"false");
+    //    }
+    //    if (CartGoodsState[1][0]==true) {
+    //        NSLog(@"true");
+    //    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,14 +107,14 @@
     [cell.reduceButton addTarget:self action:@selector(reduceButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     
-
-
+    
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    OrderEvaluateController *orderWaitEvluate=[[OrderEvaluateController alloc]initWithNibName:@"OrderEvaluateController" bundle:nil];
-//    [self.navigationController pushViewController:orderWaitEvluate animated:YES];
+    //    OrderEvaluateController *orderWaitEvluate=[[OrderEvaluateController alloc]initWithNibName:@"OrderEvaluateController" bundle:nil];
+    //    [self.navigationController pushViewController:orderWaitEvluate animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -142,7 +143,7 @@
     {
         cell.selectButton.selectState=CartSectionState[section];
         [self setButtonSelectOrNo:cell.selectButton withState:false];
-
+        
     }
     
     [cell.selectButton addTarget:self action:@selector(SectionSelecButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -152,14 +153,14 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark - tableview代理方法
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -197,13 +198,14 @@
                                                                    error:&error];
                                           ShopCartReturnData *data=[ShopCartReturnData mj_objectWithKeyValues:jsonDic];
                                           if (data.Success) {
-//                                              [self.ShopCartDataArray removeAllObjects];
+                                              //                                              [self.ShopCartDataArray removeAllObjects];
                                               
                                               self.ShopCartDataArray=data.Data.Data;
                                               
                                               
                                               [SVProgressHUD dismiss];
                                               [self.carTableView reloadData];
+                                              [self calculatePriceAndTotalCount];
                                               
                                           } else {
                                               [SVProgressHUD showErrorWithStatus:k_Error_WebViewError];
@@ -234,7 +236,7 @@
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,@"Usr.asmx/EditCart"];
     
-       
+    
     ShopCartDetailData *shopCartDetailData=[self.ShopCartDataArray objectAtIndex:button.section];
     ShopCartInfoPart *shopCartInfoPart=[shopCartDetailData.Parts objectAtIndex:button.row];
     
@@ -245,15 +247,15 @@
     {
         count=[button.countTextField.text intValue]-1;
     }
-
+    
     NSDictionary *cartJson =@{
-                                  @"Id":shopCartInfoPart.Id,
-                                  @"UsrId":shopCartInfoPart.UsrId,
-                                  @"PartsId":shopCartInfoPart.PartsId,
-                                  @"AddDate":shopCartInfoPart.AddDate,
-                                  @"Cnt":[NSString stringWithFormat:@"%d",count],
-                                  
-                                  };
+                              @"Id":shopCartInfoPart.Id,
+                              @"UsrId":shopCartInfoPart.UsrId,
+                              @"PartsId":shopCartInfoPart.PartsId,
+                              @"AddDate":shopCartInfoPart.AddDate,
+                              @"Cnt":[NSString stringWithFormat:@"%d",count],
+                              
+                              };
     NSError *error;
     NSData *partsLstJsonArrayData = [NSJSONSerialization dataWithJSONObject:cartJson options:NSJSONWritingPrettyPrinted error:&error];
     NSString *partsLstJsonArrayDataJsonString = [[NSString alloc] initWithData:partsLstJsonArrayData encoding:NSUTF8StringEncoding];
@@ -275,8 +277,8 @@
                                                                    error:&error];
                                           ShopCartReturnData *data=[ShopCartReturnData mj_objectWithKeyValues:jsonDic];
                                           if (data.Success) {
-                                                                                           [SVProgressHUD dismiss];
-                                              button.countTextField.text=[NSString stringWithFormat:@"%d",count];
+                                              [SVProgressHUD dismiss];
+                                              [self getCartGoodsInfoFromNetwork];
                                               
                                           } else {
                                               [SVProgressHUD showErrorWithStatus:k_Error_WebViewError];
@@ -309,7 +311,7 @@
     
     ShopCartDetailData *shopCartDetailData=[self.ShopCartDataArray objectAtIndex:indexPath.section];
     ShopCartInfoPart *shopCartInfoPart=[shopCartDetailData.Parts objectAtIndex:indexPath.row];
-        NSArray *partsLstJsonArray=@[shopCartInfoPart.Id];
+    NSArray *partsLstJsonArray=@[shopCartInfoPart.Id];
     
     NSError *error;
     NSData *partsLstJsonArrayData = [NSJSONSerialization dataWithJSONObject:partsLstJsonArray options:NSJSONWritingPrettyPrinted error:&error];
@@ -376,16 +378,16 @@
         //店铺头标题也被取消勾选
         CartSectionState[button.section]=NO;
         [self.carTableView reloadData];
-
+        
     }
     else
     {
         CartGoodsState[button.section][button.row]=!CartGoodsState[button.section][button.row];
         [self.carTableView reloadData];
-
+        
     }
     [self calculatePriceAndTotalCount];
-
+    
 }
 //店铺全选按钮
 -(void)SectionSelecButtonAction:(SelectButton*)button
@@ -395,10 +397,10 @@
     if (button.selectState) {
         CartSectionState[button.section]=button.selectState;
         for (int i=0; i<data.Parts.count; i++) {
-        CartGoodsState[button.section][i]=true;
+            CartGoodsState[button.section][i]=true;
         }
         [self.carTableView reloadData];//刷新所有被选中的店铺配件，店铺勾选态被置为空
-
+        
     }
     else
     {
@@ -411,7 +413,7 @@
         [self.carTableView reloadData];
     }
     [self calculatePriceAndTotalCount];
-
+    
 }
 //根据按钮状态设置图标
 -(void)setButtonSelectOrNo:(SelectButton *)button withState:(BOOL)state
@@ -438,7 +440,7 @@
     }
     [self.carTableView reloadData];
     [self calculatePriceAndTotalCount];
-
+    
 }
 //数组所有元素置为一个状态
 -(void)setCartGoodsState:(BOOL)state

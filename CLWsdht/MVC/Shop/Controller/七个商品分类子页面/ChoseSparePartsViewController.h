@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ChoseSparePartsViewController : UIViewController
+@interface ChoseSparePartsViewController : BaseViewController
 @property(nonatomic,copy)NSString *categoryID;
+
+@property (weak, nonatomic) IBOutlet UIButton *districtButton;
+@property (weak, nonatomic) IBOutlet UIButton *sortButton;
+@property (weak, nonatomic) IBOutlet UIButton *careTypeButton;
+@property (weak, nonatomic) IBOutlet UIButton *repairBagButton;
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
 @end

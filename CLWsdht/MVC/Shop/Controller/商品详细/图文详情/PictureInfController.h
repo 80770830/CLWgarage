@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface PictureInfController : BaseViewController
+@property(strong,nonatomic)NSArray *imageArray;//图文详情图片
 
 @end

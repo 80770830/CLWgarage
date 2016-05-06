@@ -20,6 +20,7 @@
 #define k_Status_Login               @"登录中..."
 #define k_Status_VerifyCode          @"验证中..."
 #define k_Status_GetVerifyCode       @"验证码发送中..."
+#define k_Status_GetArea             @"获取城市列表中..."
 #define k_Status_UpLoad              @"图片上传中,请耐心等待."
 #define k_Status_Advice              @"意见提交中..."
 #define k_Status_SubmitOrder         @"订单提交中..."

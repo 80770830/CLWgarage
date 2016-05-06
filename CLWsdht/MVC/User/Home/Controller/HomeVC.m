@@ -29,11 +29,14 @@
 //我要买件
 @property (weak, nonatomic) IBOutlet UIButton *needer;
 
-//我的订单
-@property (weak, nonatomic) IBOutlet UIButton *myOrder;
+
+
 
 //我的需求
 @property (weak, nonatomic) IBOutlet UIButton *myNeed;
+
+//我的订单
+@property (weak, nonatomic) IBOutlet UIButton *stdbtn;
 
 @end
 
@@ -53,12 +56,11 @@
     _needer.layer.masksToBounds = YES;
     _needer.layer.cornerRadius = 8;
 
-    _myOrder.layer.masksToBounds = YES;
-    _myOrder.layer.cornerRadius = 8;
-
     _myNeed.layer.masksToBounds = YES;
     _myNeed.layer.cornerRadius = 8;
 
+    _stdbtn.layer.masksToBounds = YES;
+    _stdbtn.layer.cornerRadius = 8;
     
     [self initData];
     
@@ -202,10 +204,30 @@
 
 #pragma mark -我要买件
 - (IBAction)neederBtn:(UIButton *)sender {
+    ApplicationDelegate.tabbarController.selectedViewController=[self.tabBarController.viewControllers objectAtIndex:1];
 }
 
 #pragma mark -- 我的订单
 - (IBAction)myOrder:(UIButton *)sender {
+   
+    UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];
+    self.navigationItem.backBarButtonItem = backIetm;
+    backIetm.title =@"返回";
+    [self setHidesBottomBarWhenPushed:YES];
+    MyOrderViewController *myOrderVC = [[MyOrderViewController alloc] init];
+    [self.navigationController pushViewController:myOrderVC animated:YES];
+    [self setHidesBottomBarWhenPushed:NO];
+}
+- (IBAction)stdOrderClick:(UIButton *)sender {
+//    UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];
+//    self.navigationItem.backBarButtonItem = backIetm;
+//    backIetm.title =@"返回";
+//    [self setHidesBottomBarWhenPushed:YES];
+//    MyOrderViewController *myOrderVC = [[MyOrderViewController alloc] init];
+//    [self.navigationController pushViewController:myOrderVC animated:YES];
+//    [self setHidesBottomBarWhenPushed:NO];
+}
+- (IBAction)stdOrderbtn:(UIButton *)sender {
     UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];
     self.navigationItem.backBarButtonItem = backIetm;
     backIetm.title =@"返回";
