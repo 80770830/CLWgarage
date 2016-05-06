@@ -160,8 +160,15 @@
 //
 #pragma mark--searchBar响应事件
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-    SearchBarViewController *searchBarVC=[[SearchBarViewController alloc]init];
-    [self presentViewController:searchBarVC animated:YES completion:^{} ];
+//    SearchBarViewController *searchBarVC=[[SearchBarViewController alloc]init];
+//    [self presentViewController:searchBarVC animated:YES completion:^{} ];
+    [self setHidesBottomBarWhenPushed:YES];
+    UIStoryboard *ShopSB = [UIStoryboard storyboardWithName:@"Shop" bundle:nil];
+    ChoseSparePartsViewController *Contr = [ShopSB instantiateViewControllerWithIdentifier:@"ChoseSparePartsViewController"];
+    Contr.categoryID=@"";
+    [self.navigationController pushViewController:Contr animated:YES];
+    
+    [self setHidesBottomBarWhenPushed:NO];
 }
 -(void)clickedBtn:(CategoryButton *)btn{
     [self setHidesBottomBarWhenPushed:YES];
