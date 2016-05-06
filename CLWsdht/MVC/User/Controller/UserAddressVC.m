@@ -216,9 +216,6 @@
             NSString *status = [NSString stringWithFormat:@"%@",jsonDic[@"Success"]];
             if ([status isEqualToString:@"1"]) {
                 //成功返回
-               // NSArray *jsonDic2 = [JYJSON dictionaryOrArrayWithJSONSString:[jsonDic objectForKey:@"Data"]];
-
-               //NSLog(@"ttt:%@",jsonDic2);
                 AddressList = [JYJSON dictionaryOrArrayWithJSONSString:[jsonDic objectForKey:@"Data"]];
             
                 [self initUI];

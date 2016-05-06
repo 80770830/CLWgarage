@@ -298,6 +298,13 @@
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     if (0 == component)
     {
+        //加入默认选择第一个值
+        if(!_provinceID && _province.count && _province.count>0)//不存在默认省ID，省数量存在，并且数量大于0
+        {
+            NSDictionary *provinceName = _province[0];
+            _provinceName = provinceName[@"Name"];
+            _provinceID= provinceName[@"Id"];
+        }
          return _province.count;
     }
     if (1 == component) {
@@ -306,6 +313,13 @@
         NSArray *citys =provinceName[@"T_DicCity"];
         if(citys.count)
         {
+            //加入默认选择第一个值
+            if(!_cityID && citys.count>0)//不存在默认市ID，市数量大于0
+            {
+                NSDictionary *cityName = citys[0];
+                _CityName =cityName[@"Name"];
+                _cityID =cityName[@"Id"];
+            }
             return citys.count;
         }else
         {
@@ -326,6 +340,13 @@
         NSArray *country = cityName[@"T_DicDistrict"];
         if(country.count)
         {
+            //加入默认选择第一个值
+            if(!_countryID && country.count>0)//不存在默认市ID，市数量大于0
+            {
+                NSDictionary *countryDefault = country[0];
+                _countryName =countryDefault[@"Name"];
+                _countryID =countryDefault[@"Id"];
+            }
             return country.count;
         }else
         {
@@ -400,8 +421,6 @@
         _countryName = nil;
         _countryID = nil;
     }
-    
-    NSLog(@"%@~%@~%@", _provinceName,  _CityName,_countryName);
         
 }
 
@@ -509,7 +528,7 @@
                                 @"IsDefault":defaulStr,
                                 @"UsrId":ApplicationDelegate.userInfo.user_Id
                                 };
-    NSLog(@"%@用户编号",ApplicationDelegate.userInfo.user_Id);
+    //NSLog(@"%@用户编号",ApplicationDelegate.userInfo.user_Id);
     
     [ApplicationDelegate.httpManager POST:urlStr parameters:paramDict progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -520,7 +539,11 @@
             NSString *status = [NSString stringWithFormat:@"%@",jsonDic[@"Success"]];
             if ([status isEqualToString:@"1"]) {
                 //成功返回
-                
+                //修改登录用户的默认地址
+                if(defaulStr)
+                {
+                    ApplicationDelegate.userInfo.Address =txtAddressDetail.text;
+                }
                 [SVProgressHUD showSuccessWithStatus:@"地址添加成功"];
                 
             } else  {
@@ -543,12 +566,11 @@
  */
 - (void) getAreaData
 {
-    [SVProgressHUD showWithStatus:k_Status_GetVerifyCode];
+    [SVProgressHUD showWithStatus:k_Status_GetArea];
     
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,k_url_Dic_GetProvincial];
     
     NSDictionary *paramDict = @{
-                                
                                 };
     
     [ApplicationDelegate.httpManager POST:urlStr parameters:paramDict progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -561,7 +583,7 @@
                 //成功返回
                 _province =jsonDic[@"Data"];
                 [self.pickerView reloadAllComponents]; //取得数据后，重新加载
-                //[SVProgressHUD showSuccessWithStatus:@"地址添加成功"];
+                [SVProgressHUD showSuccessWithStatus:@"区域信息获取成功"];
                 
             } else  {
                 [SVProgressHUD showErrorWithStatus:jsonDic[@"Message"]];
