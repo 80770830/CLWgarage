@@ -12,6 +12,7 @@
 #import "AddressGroupJSONModel.h"//地址model
 #import "AddressJSONModel.h"//地址model
 #import "MyOrderViewController.h"//我的订单VC
+#import "MyWalletViewController.h"//我的钱包
 
 @interface HomeVC (){
     
@@ -200,6 +201,10 @@
 
 #pragma mark -我的钱包
 - (IBAction)myCaseBtn:(UIButton *)sender {
+    [self setHidesBottomBarWhenPushed:YES];
+    MyWalletViewController *wallet = [[MyWalletViewController alloc] init];
+    [self.navigationController pushViewController:wallet animated:YES];
+    [self setHidesBottomBarWhenPushed:NO];
 }
 
 #pragma mark -我要买件

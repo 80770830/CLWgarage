@@ -110,6 +110,13 @@
 		29E754221CD09ED4006B21DF /* CategoryModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E754211CD09ED4006B21DF /* CategoryModal.m */; };
 		29E754281CD0B979006B21DF /* CategoryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E754271CD0B979006B21DF /* CategoryButton.m */; };
 		29E7542D1CD0BBCC006B21DF /* ChoseSparePartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E7542C1CD0BBCC006B21DF /* ChoseSparePartsViewController.m */; };
+		2F279D531CDCD36A0084A1E4 /* MyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F279D451CDCD36A0084A1E4 /* MyWalletViewController.m */; };
+		2F279D541CDCD36A0084A1E4 /* MyWalletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F279D481CDCD36A0084A1E4 /* MyWalletModel.m */; };
+		2F279D551CDCD36A0084A1E4 /* MyWalletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F279D4B1CDCD36A0084A1E4 /* MyWalletView.m */; };
+		2F279D561CDCD36A0084A1E4 /* WithdrawalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F279D4F1CDCD36A0084A1E4 /* WithdrawalViewController.m */; };
+		2F279D571CDCD36A0084A1E4 /* WithdrawalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F279D521CDCD36A0084A1E4 /* WithdrawalView.m */; };
+		2F279D5A1CDCD3B00084A1E4 /* daijiesuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F279D581CDCD3B00084A1E4 /* daijiesuan.png */; };
+		2F279D5B1CDCD3B00084A1E4 /* yijiesuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F279D591CDCD3B00084A1E4 /* yijiesuan.png */; };
 		2F35F4EF1CD4574200900FE2 /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F35F4ED1CD4574200900FE2 /* jpush-ios-2.1.6.a */; };
 		2F35F4F11CD4583800900FE2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F35F4F01CD4583800900FE2 /* CFNetwork.framework */; };
 		2F35F4F31CD4584E00900FE2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F35F4F21CD4584E00900FE2 /* CoreFoundation.framework */; };
@@ -501,6 +508,18 @@
 		29E754271CD0B979006B21DF /* CategoryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryButton.m; sourceTree = "<group>"; };
 		29E7542B1CD0BBCC006B21DF /* ChoseSparePartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseSparePartsViewController.h; sourceTree = "<group>"; };
 		29E7542C1CD0BBCC006B21DF /* ChoseSparePartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseSparePartsViewController.m; sourceTree = "<group>"; };
+		2F279D441CDCD36A0084A1E4 /* MyWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletViewController.h; sourceTree = "<group>"; };
+		2F279D451CDCD36A0084A1E4 /* MyWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletViewController.m; sourceTree = "<group>"; };
+		2F279D471CDCD36A0084A1E4 /* MyWalletModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletModel.h; sourceTree = "<group>"; };
+		2F279D481CDCD36A0084A1E4 /* MyWalletModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletModel.m; sourceTree = "<group>"; };
+		2F279D4A1CDCD36A0084A1E4 /* MyWalletView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletView.h; sourceTree = "<group>"; };
+		2F279D4B1CDCD36A0084A1E4 /* MyWalletView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletView.m; sourceTree = "<group>"; };
+		2F279D4E1CDCD36A0084A1E4 /* WithdrawalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawalViewController.h; sourceTree = "<group>"; };
+		2F279D4F1CDCD36A0084A1E4 /* WithdrawalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawalViewController.m; sourceTree = "<group>"; };
+		2F279D511CDCD36A0084A1E4 /* WithdrawalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawalView.h; sourceTree = "<group>"; };
+		2F279D521CDCD36A0084A1E4 /* WithdrawalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawalView.m; sourceTree = "<group>"; };
+		2F279D581CDCD3B00084A1E4 /* daijiesuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daijiesuan.png; sourceTree = "<group>"; };
+		2F279D591CDCD3B00084A1E4 /* yijiesuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yijiesuan.png; sourceTree = "<group>"; };
 		2F35F4ED1CD4574200900FE2 /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
 		2F35F4EE1CD4574200900FE2 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		2F35F4F01CD4583800900FE2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1374,6 +1393,71 @@
 			path = "七个商品分类子页面";
 			sourceTree = "<group>";
 		};
+		2F279D421CDCD36A0084A1E4 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				2F279D431CDCD36A0084A1E4 /* Controller */,
+				2F279D461CDCD36A0084A1E4 /* Model */,
+				2F279D491CDCD36A0084A1E4 /* View */,
+				2F279D4C1CDCD36A0084A1E4 /* Withdrawal */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		2F279D431CDCD36A0084A1E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2F279D441CDCD36A0084A1E4 /* MyWalletViewController.h */,
+				2F279D451CDCD36A0084A1E4 /* MyWalletViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2F279D461CDCD36A0084A1E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F279D471CDCD36A0084A1E4 /* MyWalletModel.h */,
+				2F279D481CDCD36A0084A1E4 /* MyWalletModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F279D491CDCD36A0084A1E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F279D4A1CDCD36A0084A1E4 /* MyWalletView.h */,
+				2F279D4B1CDCD36A0084A1E4 /* MyWalletView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F279D4C1CDCD36A0084A1E4 /* Withdrawal */ = {
+			isa = PBXGroup;
+			children = (
+				2F279D4D1CDCD36A0084A1E4 /* Controller */,
+				2F279D501CDCD36A0084A1E4 /* View */,
+			);
+			path = Withdrawal;
+			sourceTree = "<group>";
+		};
+		2F279D4D1CDCD36A0084A1E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2F279D4E1CDCD36A0084A1E4 /* WithdrawalViewController.h */,
+				2F279D4F1CDCD36A0084A1E4 /* WithdrawalViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2F279D501CDCD36A0084A1E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F279D511CDCD36A0084A1E4 /* WithdrawalView.h */,
+				2F279D521CDCD36A0084A1E4 /* WithdrawalView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2F35F4EB1CD4574200900FE2 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
@@ -1431,6 +1515,8 @@
 		3AAE290D1CD9AA7E00FF88F3 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				2F279D581CDCD3B00084A1E4 /* daijiesuan.png */,
+				2F279D591CDCD3B00084A1E4 /* yijiesuan.png */,
 				3AAE290E1CD9AA7E00FF88F3 /* per_buyers.png */,
 			);
 			path = image;
@@ -1494,6 +1580,7 @@
 		9879BDC11CCB245700AAED9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F279D421CDCD36A0084A1E4 /* Wallet */,
 				29E754181CCE5624006B21DF /* 支付-oyj */,
 				9879BDC41CCB245700AAED9C /* HomeVC.h */,
 				9879BDC51CCB245700AAED9C /* HomeVC.m */,
@@ -2184,6 +2271,7 @@
 				29E7541D1CCE5649006B21DF /* PayController.xib in Resources */,
 				98E8C17B1C49E50800310091 /* LaunchScreen.storyboard in Resources */,
 				DF0991CB1C585634001B6F2D /* Assets.xcassets in Resources */,
+				2F279D5A1CDCD3B00084A1E4 /* daijiesuan.png in Resources */,
 				29BEB6F11CCA7EB300532C6F /* ShareSDKLocalizable.strings in Resources */,
 				989626951CA3DB6B00B6F9EB /* per_yrz.png in Resources */,
 				DF0991C91C5767C1001B6F2D /* ScrollViewTestViewController.xib in Resources */,
@@ -2200,6 +2288,7 @@
 				DF0991D51C5B3223001B6F2D /* ChosePlaceViewController.xib in Resources */,
 				2939E9B31CD759AC001984BE /* ProductDetailContr.xib in Resources */,
 				29BEB6F61CCA7EB300532C6F /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				2F279D5B1CDCD3B00084A1E4 /* yijiesuan.png in Resources */,
 				2996DD7C1CC8C0BC00EB29EF /* BuyNowController.xib in Resources */,
 				98E8C1C51C49E5EB00310091 /* Login.storyboard in Resources */,
 				98E8C1BA1C49E5EB00310091 /* LaunchScreen.storyboard in Resources */,
@@ -2281,6 +2370,7 @@
 				DF0991CF1C59A777001B6F2D /* SubmitOrderViewController.m in Sources */,
 				2916685A1CC19BA200EEF665 /* CellRowButton.m in Sources */,
 				2916684E1CC1426B00EEF665 /* PartsUse.m in Sources */,
+				2F279D561CDCD36A0084A1E4 /* WithdrawalViewController.m in Sources */,
 				C9622DCA1C4B40E700AE849E /* ZLPhotoPickerCollectionViewCell.m in Sources */,
 				C9622DB81C4B40E700AE849E /* ZLCameraView.m in Sources */,
 				98E8C1CA1C49E5EB00310091 /* UserVC.m in Sources */,
@@ -2313,6 +2403,7 @@
 				9879BDE11CCB245700AAED9C /* HomeVC.m in Sources */,
 				296F99F31CB936B7008402F0 /* PartsData.m in Sources */,
 				DF7507991CCDC4E300BA40EB /* CustomAlertAction.m in Sources */,
+				2F279D551CDCD36A0084A1E4 /* MyWalletView.m in Sources */,
 				292D9A4B1CC85EC9001B0CE8 /* returnDataPartsList.m in Sources */,
 				C9A0D73E1C4A4B890028EEB8 /* MyShopCarAccessoryColorInfo.m in Sources */,
 				C9622DC91C4B40E700AE849E /* ZLPhotoPickerCollectionView.m in Sources */,
@@ -2344,6 +2435,7 @@
 				29BEB6BD1CCA7EA200532C6F /* NSDataEx.m in Sources */,
 				9879BDE41CCB245700AAED9C /* MyOrderViewController.m in Sources */,
 				291668211CBFE0CB00EEF665 /* SectionRowCell.m in Sources */,
+				2F279D571CDCD36A0084A1E4 /* WithdrawalView.m in Sources */,
 				3AAE29161CD9AAF000FF88F3 /* UserRespondDemandModel.m in Sources */,
 				C9A0D7381C4A430A0028EEB8 /* MyShopCarAccessoryNameInfo.m in Sources */,
 				C9622DC31C4B40E700AE849E /* ZLPhotoPickerDatas.m in Sources */,
@@ -2366,6 +2458,7 @@
 				9879BDEE1CCB245700AAED9C /* GoodModel.m in Sources */,
 				98E8C1C31C49E5EB00310091 /* UserInfo.m in Sources */,
 				DF0991D41C5B3223001B6F2D /* ChosePlaceViewController.m in Sources */,
+				2F279D541CDCD36A0084A1E4 /* MyWalletModel.m in Sources */,
 				C9622DB71C4B40E700AE849E /* ZLCameraImageView.m in Sources */,
 				C9622DCD1C4B40E700AE849E /* ZLPhotoPickerImageView.m in Sources */,
 				3AAE292B1CD9AB8E00FF88F3 /* UserAddressVC.m in Sources */,
@@ -2413,6 +2506,7 @@
 				987D78B51C9CF847005A0A2C /* UsrStoreTableViewCell.m in Sources */,
 				291667DC1CBA123900EEF665 /* GoodsDescriptionViewController.m in Sources */,
 				2916681E1CBFE08B00EEF665 /* SectionTitleCell.m in Sources */,
+				2F279D531CDCD36A0084A1E4 /* MyWalletViewController.m in Sources */,
 				3AAE292E1CD9AB8E00FF88F3 /* UserEditPasswordVC.m in Sources */,
 				29BEB7081CCA7F5F00532C6F /* payRequsestHandler.mm in Sources */,
 				C9622DB51C4B40E700AE849E /* UIView+ZLExtension.m in Sources */,
