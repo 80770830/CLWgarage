@@ -86,11 +86,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLWsdht/MVC/Shop/Controller/&#x5546;&#x54c1;&#x8be6;&#x7ec6;/ProductInfoViewController.m"
-            timestampString = "483973131.948049"
+            timestampString = "484463856.336843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500">
+            startingLineNumber = "501"
+            endingLineNumber = "501">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLWsdht/MVC/Shop/Controller/&#x5546;&#x54c1;&#x8be6;&#x7ec6;/ProductInfoViewController.m"
-            timestampString = "483973131.948049"
+            timestampString = "484463856.336843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "420"
-            endingLineNumber = "420"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
             landmarkName = "-segmentValueChange:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,6 +202,22 @@
             startingLineNumber = "311"
             endingLineNumber = "311"
             landmarkName = "-payButtonAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CLWsdht/MVC/Shop/Controller/&#x5546;&#x54c1;&#x8be6;&#x7ec6;/&#x7acb;&#x5373;&#x8d2d;&#x4e70;/BuyNowController.m"
+            timestampString = "484468694.694533"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-buyNowToNetwork"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

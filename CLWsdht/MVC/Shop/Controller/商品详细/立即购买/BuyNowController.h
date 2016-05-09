@@ -10,5 +10,9 @@
 #import "GoodInfoData.h"
 
 @interface BuyNowController : BaseViewController
+//选择“我的”地址
 @property(strong,nonatomic)GoodInfoData *goodInfo;
+@property(strong,nonatomic)NSDictionary *selectAddressDic;
+//选择用户列表中地址1还是用户登陆时地址0
+@property(assign,nonatomic)BOOL newUsrAdsressState;
 @end

@@ -11,6 +11,8 @@
 #import "GoodInfoReturn.h"
 #import "MJExtension.h"
 #import "UserInfo.h"//用户模型信息
+#import "AddressSelectController.h"
+
 
 @interface BuyNowController ()
 //地址信息
@@ -42,10 +44,47 @@
 @end
 
 @implementation BuyNowController
+-(NSDictionary *)selectAddressDic
+{
+    if (!_selectAddressDic) {
+        self.selectAddressDic=[[NSMutableDictionary alloc]initWithObjectsAndKeys://修配厂信息
+                               @"",@"Id",
+                               @"",@"Mobile",
+                               @"",@"Name",
+                               @"",@"ProvincialId",
+                               @"",@"ProvincialName",
+                               @"",@"CityName",
+                               @"",@"CityId",
+                               @"",@"DistrictId",
+                               @"",@"Address",
+                               nil];
+    }
+    return _selectAddressDic;
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+        if (self.newUsrAdsressState) {//选择新的用户地址
+            //我的信息
+            self.name.text=[self.selectAddressDic objectForKey:@"Name"];
+            self.address.text=[NSString stringWithFormat:@"%@%@%@",[self.selectAddressDic objectForKey:@"ProvincialName"],[self.selectAddressDic objectForKey:@"CityName"],[self.selectAddressDic objectForKey:@"Address"]];
+            self.Mobile.text=[self.selectAddressDic objectForKey:@"Mobile"];
+        }
+        else //默认登陆用户地址
+        {
+            //我的信息
+            self.name.text=ApplicationDelegate.userInfo.Name;
+            self.address.text=[NSString stringWithFormat:@"%@%@%@",ApplicationDelegate.userInfo.ProvincialName,ApplicationDelegate.userInfo.CityName,ApplicationDelegate.userInfo.Address];
+            self.Mobile.text=ApplicationDelegate.userInfo.Mobile;
+        }
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIBarButtonItem *returnBut=[[UIBarButtonItem alloc]initWithTitle:@"<返回" style:UIBarButtonItemStylePlain target:self action:@selector(returnAction)];
+    self.navigationItem.leftBarButtonItem=returnBut;
     [self updateUI];
+    self.title=@"下单";
 }
 #pragma mark - UI&Data
 -(void)updateUI
@@ -94,9 +133,9 @@
     NSString *OrdersId=[MJYUtils mjy_uuid];
     NSDictionary *garageOrdersJson =@{};
     NSDictionary *partsOrdersJson =@{
-                                     @"Addr":@"1",
-                                     @"CityId":ApplicationDelegate.userInfo.CityId,
-                                     @"Consignee":ApplicationDelegate.userInfo.Name,
+                                     @"Addr":self.address.text,
+                                     @"CityId":[self.selectAddressDic objectForKey:@"CityId"],
+                                     @"Consignee":self.name.text,
                                      @"GarageOrdersId":@"",
                                      @"Id":OrdersId,
                                      @"Mobile":ApplicationDelegate.userInfo.Mobile,
@@ -159,6 +198,10 @@
 }
 
 - (IBAction)addressButton:(id)sender {
+    UIStoryboard *addressSB= [UIStoryboard storyboardWithName:@"AddressSelect" bundle:nil];
+    AddressSelectController *addressContr = [addressSB instantiateViewControllerWithIdentifier:@"AddressSelectController"];
+    addressContr.buyNowContr=self;
+    [self.navigationController pushViewController:addressContr animated:YES];
 }
 
 - (IBAction)addButtonAction:(id)sender {
@@ -189,7 +232,13 @@
     
 }
 
-
+//返回按钮
+-(IBAction)returnAction
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 
 

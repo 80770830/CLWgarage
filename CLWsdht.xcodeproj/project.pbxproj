@@ -57,6 +57,9 @@
 		2996DD7B1CC8C0BC00EB29EF /* BuyNowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2996DD791CC8C0BC00EB29EF /* BuyNowController.m */; };
 		2996DD7C1CC8C0BC00EB29EF /* BuyNowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2996DD7A1CC8C0BC00EB29EF /* BuyNowController.xib */; };
 		29A1DDB91CC5D707009DCA94 /* CheckClassifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A1DDB81CC5D707009DCA94 /* CheckClassifyCell.m */; };
+		29B5970B1CE056D500B386D6 /* AddressSelect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29B597061CE056D500B386D6 /* AddressSelect.storyboard */; };
+		29B5970C1CE056D500B386D6 /* AddressSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B597081CE056D500B386D6 /* AddressSelectCell.m */; };
+		29B5970D1CE056D500B386D6 /* AddressSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B5970A1CE056D500B386D6 /* AddressSelectController.m */; };
 		29BEB6511CCA142A00532C6F /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BEB6501CCA142A00532C6F /* AddressTableViewCell.m */; };
 		29BEB6B51CCA7EA100532C6F /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29BEB6531CCA7EA100532C6F /* AlipaySDK.bundle */; };
 		29BEB6B61CCA7EA100532C6F /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29BEB6541CCA7EA100532C6F /* AlipaySDK.framework */; };
@@ -346,6 +349,11 @@
 		2996DD7A1CC8C0BC00EB29EF /* BuyNowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyNowController.xib; sourceTree = "<group>"; };
 		29A1DDB71CC5D707009DCA94 /* CheckClassifyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckClassifyCell.h; sourceTree = "<group>"; };
 		29A1DDB81CC5D707009DCA94 /* CheckClassifyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckClassifyCell.m; sourceTree = "<group>"; };
+		29B597061CE056D500B386D6 /* AddressSelect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddressSelect.storyboard; sourceTree = "<group>"; };
+		29B597071CE056D500B386D6 /* AddressSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressSelectCell.h; sourceTree = "<group>"; };
+		29B597081CE056D500B386D6 /* AddressSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressSelectCell.m; sourceTree = "<group>"; };
+		29B597091CE056D500B386D6 /* AddressSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressSelectController.h; sourceTree = "<group>"; };
+		29B5970A1CE056D500B386D6 /* AddressSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressSelectController.m; sourceTree = "<group>"; };
 		29BEB64F1CCA142A00532C6F /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
 		29BEB6501CCA142A00532C6F /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
 		29BEB6531CCA7EA100532C6F /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
@@ -1088,6 +1096,7 @@
 		2996DD771CC8C04300EB29EF /* 立即购买 */ = {
 			isa = PBXGroup;
 			children = (
+				29B597051CE056BA00B386D6 /* 地址选择 */,
 				2996DD781CC8C0BC00EB29EF /* BuyNowController.h */,
 				2996DD791CC8C0BC00EB29EF /* BuyNowController.m */,
 				2996DD7A1CC8C0BC00EB29EF /* BuyNowController.xib */,
@@ -1103,6 +1112,18 @@
 			);
 			name = "商品列表cell";
 			path = "分类列表cell";
+			sourceTree = "<group>";
+		};
+		29B597051CE056BA00B386D6 /* 地址选择 */ = {
+			isa = PBXGroup;
+			children = (
+				29B597061CE056D500B386D6 /* AddressSelect.storyboard */,
+				29B597071CE056D500B386D6 /* AddressSelectCell.h */,
+				29B597081CE056D500B386D6 /* AddressSelectCell.m */,
+				29B597091CE056D500B386D6 /* AddressSelectController.h */,
+				29B5970A1CE056D500B386D6 /* AddressSelectController.m */,
+			);
+			name = "地址选择";
 			sourceTree = "<group>";
 		};
 		29BEB6521CCA7EA100532C6F /* AliPay */ = {
@@ -2300,6 +2321,7 @@
 				9879BDE31CCB245700AAED9C /* MaintainOrderViewController.xib in Resources */,
 				9879BDE51CCB245700AAED9C /* MyOrderViewController.xib in Resources */,
 				291667E71CBA1A7800EEF665 /* GoodsEvaluateController.xib in Resources */,
+				29B5970B1CE056D500B386D6 /* AddressSelect.storyboard in Resources */,
 				98E8C1CB1C49E5EB00310091 /* User.storyboard in Resources */,
 				DF0991891C55F6B7001B6F2D /* SearchBarViewController.xib in Resources */,
 			);
@@ -2349,6 +2371,7 @@
 				C972A67E1C4B8BCD001C0F93 /* MyShopCarAccessoryPurityInfo.m in Sources */,
 				98E8C1C01C49E5EB00310091 /* UserInforViewController.m in Sources */,
 				DF0991C61C5767C1001B6F2D /* DockMenuView.m in Sources */,
+				29B5970C1CE056D500B386D6 /* AddressSelectCell.m in Sources */,
 				DF0991C71C5767C1001B6F2D /* DockMenuSubView.m in Sources */,
 				2916683F1CC13BDE00EEF665 /* CheckClassifyCell1.m in Sources */,
 				9879BDF41CCB252E00AAED9C /* SingleCase.m in Sources */,
@@ -2473,6 +2496,7 @@
 				291668021CBB714C00EEF665 /* CarTableViewCell.m in Sources */,
 				2916680E1CBB84D800EEF665 /* ShopCartInfoPart.m in Sources */,
 				29E7542D1CD0BBCC006B21DF /* ChoseSparePartsViewController.m in Sources */,
+				29B5970D1CE056D500B386D6 /* AddressSelectController.m in Sources */,
 				C9622DC11C4B40E700AE849E /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				291668081CBB806400EEF665 /* ShopCartData.m in Sources */,
 				9879BDEC1CCB245700AAED9C /* TheOrderViewController.m in Sources */,

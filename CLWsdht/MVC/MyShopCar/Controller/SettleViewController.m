@@ -17,6 +17,7 @@
 #import "ShopCartReturnData.h"
 #import "MJExtension.h"
 #import "AddressTableViewCell.h"
+#import "AddressSelectController.h"
 
 @interface SettleViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *settleTableView;
@@ -26,6 +27,24 @@
 @end
 
 @implementation SettleViewController
+-(NSDictionary *)selectAddressDic
+{
+    if (!_selectAddressDic) {
+        self.selectAddressDic=[[NSMutableDictionary alloc]initWithObjectsAndKeys://修配厂信息
+                               @"",@"Id",
+                               @"",@"Mobile",
+                               @"",@"Name",
+                               @"",@"ProvincialId",
+                               @"",@"ProvincialName",
+                               @"",@"CityName",
+                               @"",@"CityId",
+                               @"",@"DistrictId",
+                               @"",@"Address",
+                               nil];
+    }
+    return _selectAddressDic;
+}
+
 -(NSMutableArray *)leaveWordsArray
 {
     if (!_leaveWordsArray) {
@@ -46,10 +65,32 @@
     }
     return _sectionTotalPriceArray;
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    AddressTableViewCell *cell=(AddressTableViewCell*)self.settleTableView.tableHeaderView;
+    if (self.newUsrAdsressState) {//选择新的用户地址
+        //我的信息
+        
+        cell.nameLabel.text=[self.selectAddressDic objectForKey:@"Name"];
+        cell.detailLabel.text=[NSString stringWithFormat:@"%@%@%@",[self.selectAddressDic objectForKey:@"ProvincialName"],[self.selectAddressDic objectForKey:@"CityName"],[self.selectAddressDic objectForKey:@"Address"]];
+        cell.telphoneLabel.text=[self.selectAddressDic objectForKey:@"Mobile"];
+    }
+    else //默认登陆用户地址
+    {
+        //我的信息
+        cell.nameLabel.text=ApplicationDelegate.userInfo.Name;
+        cell.detailLabel.text=[NSString stringWithFormat:@"%@%@%@",ApplicationDelegate.userInfo.ProvincialName,ApplicationDelegate.userInfo.CityName,ApplicationDelegate.userInfo.Address];
+        cell.telphoneLabel.text=ApplicationDelegate.userInfo.Mobile;
+        [self.selectAddressDic setValue:ApplicationDelegate.userInfo.CityId forKey:@"CityId"];
+    }
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",self.settleArray);
+    self.title=@"结算";
+    UIBarButtonItem *returnBut=[[UIBarButtonItem alloc]initWithTitle:@"<返回" style:UIBarButtonItemStylePlain target:self action:@selector(returnAction)];
+    self.navigationItem.leftBarButtonItem=returnBut;
     static NSString *cellID = @"AddressTableViewCell";
     AddressTableViewCell *cell = [self.settleTableView dequeueReusableCellWithIdentifier:cellID];
     self.settleTableView.tableHeaderView=cell;
@@ -180,13 +221,16 @@
                                           };
             [partsLstJsonArray  addObject:partsLstJson];
         }
+        
+        AddressTableViewCell *cell=(AddressTableViewCell*)self.settleTableView.tableHeaderView;
+
         NSDictionary *partsOrdersJson =@{
-                                         @"Addr":ApplicationDelegate.userInfo.Address,
-                                         @"CityId":ApplicationDelegate.userInfo.CityId,
-                                         @"Consignee":ApplicationDelegate.userInfo.Name,
+                                         @"Addr":cell.detailLabel.text,
+                                         @"CityId":[self.selectAddressDic objectForKey:@"CityId"],
+                                         @"Consignee":cell.nameLabel.text,
                                          @"GarageOrdersId":@"",
                                          @"Id":OrdersId,
-                                         @"Mobile":ApplicationDelegate.userInfo.Mobile,
+                                         @"Mobile":cell.telphoneLabel.text,
                                          @"Msg":[self.leaveWordsArray objectAtIndex:i],
                                          @"Price":[self.sectionTotalPriceArray objectAtIndex:i],
                                          @"StoreId":storeData.UsrStoreId,
@@ -195,6 +239,8 @@
                                          };
         [partsOrdersJsonArray addObject:partsOrdersJson];
     }
+    NSLog(@"%@ %@",partsLstJsonArray,partsOrdersJsonArray);
+
     NSDictionary *paramDict = @{
                                 @"garageOrdersJson":[JYJSON JSONStringWithDictionaryOrArray:garageOrdersJson],
                                 @"partsOrdersJson":[JYJSON JSONStringWithDictionaryOrArray:partsOrdersJsonArray],
@@ -238,4 +284,19 @@
 {
     [self.leaveWordsArray replaceObjectAtIndex:textField.tag withObject:textField.text];
 }
+
+//返回按钮
+-(IBAction)returnAction
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+- (IBAction)addressButton:(id)sender {
+    UIStoryboard *addressSB= [UIStoryboard storyboardWithName:@"AddressSelect" bundle:nil];
+    AddressSelectController *addressContr = [addressSB instantiateViewControllerWithIdentifier:@"AddressSelectController"];
+    addressContr.buyNowContr=self;
+    [self.navigationController pushViewController:addressContr animated:YES];
+}
+
 @end
