@@ -8,6 +8,7 @@
 
 #import "UserEditTelVC.h"
 #import "UserInfo.h"
+#import "LoginViewController.h"
 
 @interface UserEditTelVC ()
 {
@@ -155,7 +156,7 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASEURL,k_url_get_code];
     
     NSDictionary *paramDict = @{
-                                @"mobile":self.txtTel.text,
+                                @"mobile":ApplicationDelegate.userInfo.Mobile,
                                 @"codeType":@"0"
                                 };
     
@@ -166,14 +167,15 @@
             NSDictionary *jsonDic = [JYJSON dictionaryOrArrayWithJSONSData:responseObject];
             NSLog(@"%@",jsonDic);
             NSString *status = [NSString stringWithFormat:@"%@",jsonDic[@"Success"]];
-            if ([status isEqualToString:@"0"]) {
+            if ([status isEqualToString:@"1"]) {
                 //成功返回
-                code =nil;//清空验证码
+                code =jsonDic[@"Message"];
                 [SVProgressHUD showSuccessWithStatus:@"验证码发送成功"];
                 
-            } else if([status isEqualToString:@"1"]) {
-                code =jsonDic[@"Message"];
-                //[SVProgressHUD showErrorWithStatus:jsonDic[@"Message"]];
+            } else if([status isEqualToString:@"0"]) {
+                //验证码发送不成功
+                code =nil;//清空验证码
+                [SVProgressHUD showErrorWithStatus:jsonDic[@"Message"]];
             }
             
         } else {
@@ -201,7 +203,7 @@
                                 @"code":self.txtCode.text,
                                 @"mobile":ApplicationDelegate.userInfo.Mobile,
                                 @"newMobile":self.txtTel.text,
-                                @"usrType":@"0"
+                                @"usrType":@"1"
                                 };
     
     [ApplicationDelegate.httpManager POST:urlStr parameters:paramDict progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -214,8 +216,30 @@
             if ([status isEqualToString:@"1"]) {
                 //成功返回
                 code =nil;//清空验证码
-                [SVProgressHUD showSuccessWithStatus:jsonDic[@"Message"]];
-                [self.navigationController popViewControllerAnimated:true];//返回上一级页
+                [SVProgressHUD showSuccessWithStatus:@"手机号修改成功,请重新登录"];
+                
+                //提示
+                //初始化提示框；
+                UIAlertController *alert = [UIAlertController  alertControllerWithTitle:@"提示" message:@"手机号修改成功,请重新登录" preferredStyle:  UIAlertControllerStyleAlert];
+                
+                [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    //点击按钮的响应事件；
+                    
+                    //重新登录
+                    [[NSUserDefaults standardUserDefaults]  removeObjectForKey:k_UD_username];
+                    [[NSUserDefaults standardUserDefaults]  removeObjectForKey:k_UD_password];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                    ApplicationDelegate.isLogin = NO ;
+                    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+                    LoginViewController *vc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                    vc.ifAllowAutoLogin = false;
+                    self.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                    self.hidesBottomBarWhenPushed = NO;
+                }]];
+                
+                //弹出提示框；
+                [self presentViewController:alert animated:true completion:nil];
                 
             } else {
                 //code =jsonDic[@"Message"];
